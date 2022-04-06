@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+}
+
+.form {
+  width: 40rem;
+  height: 40rem;
+  padding: 2rem;
+
+  color: white;
+  background-color: #d9d6d6;
+}
+
+.invalidInput {
+  outline: 1px solid red;
+}
+
+.input {
+  padding: 0.2rem 0.4rem;
+
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 2rem;
+}
