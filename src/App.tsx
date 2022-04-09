@@ -1,8 +1,8 @@
 import React from 'react';
-import { Registration } from './pages/registration/Registration';
+import { Welcome } from './pages/welcome/Welcome';
 
 const App = () => {
-  return <Registration />;
+  return <Welcome />;
 };
 
 export { App };

@@ -9,7 +9,6 @@ import { ChildrenNever } from '@Interfaces/childrenNever.interface';
 import { FormErrors } from '@Enums/formErrors.enum';
 
 // Assets
-import BackgroundImage from '../../assets/images/niva.jpg';
 import BackgroundForm from '../../assets/images/city.jpg';
 
 // Styles
@@ -28,16 +27,13 @@ const Registration: FC<ChildrenNever> = () => {
     <div
       className={styles.container}
       style={{
-        background: `url(${BackgroundImage})`,
+        background: `url(${BackgroundForm})`,
+        backgroundSize: 'cover',
       }}
     >
       <form
         onSubmit={handleSubmit(handleFormSubmit)}
         className={styles.form}
-        style={{
-          backgroundImage: `url(${BackgroundForm})`,
-          backgroundSize: 'cover',
-        }}
       >
         <section className={styles.inputContainer}>
           <label htmlFor="usernameRegInput" className={styles.label}>
@@ -63,6 +59,20 @@ const Registration: FC<ChildrenNever> = () => {
               pattern: {
                 value: /^[A-z0-9]+$/,
                 message: 'Имя пользователя должно состоять только из символов латинского алфавита и цифр',
+              },
+            })}
+          />
+          <label htmlFor="emailRegInput" className={styles.label}>
+            Введите email:
+          </label>
+          <input
+            type='email'
+            id="emailInput"
+            className={`${errors.username ? styles.invalidInput : ''} ${styles.input}`}
+            {...register('username', {
+              required: {
+                value: true,
+                message: FormErrors.MustFill,
               },
             })}
           />
