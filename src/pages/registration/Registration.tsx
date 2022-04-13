@@ -1,18 +1,24 @@
 // Libraries
-import { Button } from '@Components/Button/Button';
-import { Language } from '@Features/i18n/types/language.type';
 import { faAt, faEye, faEyeSlash, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import React, { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import i18n from 'i18next';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Interfaces
 import { ChildrenNever } from '@Interfaces/childrenNever.interface';
 
 // Enums
 import { FormErrors } from '@Enums/formErrors.enum';
+
+// Features
+import { Language } from '@Features/i18n/types/language.type';
+
+// Components
+import { Button } from '@Components/Button/Button';
+import { SelectLanguage } from '@Components/SelectLanguage/SelectLanguage';
 
 // Styles
 import styles from './registration.module.css';
