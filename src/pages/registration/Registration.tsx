@@ -16,7 +16,6 @@ import { FormErrors } from '@Enums/formErrors.enum';
 
 // Styles
 import styles from './registration.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const EMAIL_PATTERN = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -44,6 +43,7 @@ const Registration: FC<ChildrenNever> = () => {
 
   return (
     <div className={styles.container}>
+      <SelectLanguage />
       <form onSubmit={handleSubmit(handleFormSubmit)} className={styles.form}>
         <section className={styles.inputsContainer}>
           {errors.username ? <span className={styles.inputError}>{errors.username.message}</span> : null}

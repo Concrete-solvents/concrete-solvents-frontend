@@ -1,6 +1,7 @@
 // Libraries
 import { Language } from '@Features/i18n/types/language.type';
 import React from 'react';
+// @ts-ignore
 import { createRoot } from 'react-dom/client';
 
 // Components
