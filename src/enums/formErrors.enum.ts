@@ -1,5 +1,5 @@
 enum FormErrors {
-  MustFill = 'Это поле является обязательным',
+  MustFill = 'mustFill',
 }
 
 export { FormErrors };

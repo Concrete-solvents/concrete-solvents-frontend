@@ -1,0 +1,13 @@
+{
+  "signUp": "Sign up",
+  "username": "Username",
+  "email": "Email",
+  "password": "Password",
+  "passwordConfirmation": "Password confirmation",
+  "alreadyHaveAccount": "Already have an account?",
+  "signIn": "Sign in",
+  "mustFill": "This field is required",
+  "passwordShouldBeEquals": "Passwords should be equals",
+  "onlyLatinAndNumbers": "Username should consist only of Latin characters and numbers",
+  "wrongEmail": "Wrong email"
+}
