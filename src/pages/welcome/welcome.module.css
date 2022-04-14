@@ -19,6 +19,10 @@
   margin: 0.5rem;
   padding: 0.5rem;
 
+  color: #fff;
+  border: 2px solid var(--blueBorder);
+  background-color: var(--blueInputAndButton);
+
   font-weight: 400;
 }
 
@@ -26,6 +30,10 @@
   width: 30rem;
   margin: 0.5rem;
   padding: 0.5rem;
+
+  color: #fff;
+  border: 2px solid var(--blueBorder);
+  background-color: var(--blueInputAndButton);
 
   font-weight: 100;
 }

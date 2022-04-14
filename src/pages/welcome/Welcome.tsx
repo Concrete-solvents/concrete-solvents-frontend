@@ -24,13 +24,17 @@ const Welcome: FC<ChildrenNever> = () => {
     navigate('/registration');
   }
 
+  function goToLoginPage() {
+    navigate('/login');
+  }
+
   return (
     <div
       className={styles.container}
     >
       <SelectLanguage />
       <section className={styles.buttons}>
-        <Button className={styles.login}>{translate('signIn')}</Button>
+        <Button className={styles.login} onClick={goToLoginPage}>{translate('signIn')}</Button>
         <Button className={styles.registration} onClick={goToRegistrationPage}>{translate('signUp')}</Button>
         <p className={styles.loginWith}>{translate('signInWith')}</p>
         <section className={styles.loginWithContainer}>
