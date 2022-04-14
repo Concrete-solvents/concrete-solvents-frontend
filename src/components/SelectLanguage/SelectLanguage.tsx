@@ -1,9 +1,9 @@
 // Libraries
 import { FC } from 'react';
-import i18n from 'i18next';
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
 
 // Interfaces
 import { ChildrenNever } from '@Interfaces/childrenNever.interface';
@@ -22,6 +22,7 @@ import styles from './selectLanguage.module.css';
 
 const SelectLanguage: FC<ChildrenNever> = () => {
   const { togglePopUpVisibility, isPopUpVisible, popUpRef, buttonRef } = usePopUp();
+  const { i18n } = useTranslation();
 
   function setLanguage(language: Language) {
     i18n.changeLanguage(language);
