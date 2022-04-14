@@ -14,12 +14,16 @@ const Welcome: FC<ChildrenNever> = () => {
     navigate('/registration');
   }
 
+  function goToLoginPage() {
+    navigate('/login');
+  }
+
   return (
     <div
       className={styles.container}
     >
       <section className={styles.buttons}>
-        <Button className={styles.login}>Войти</Button>
+        <Button className={styles.login} onClick={goToLoginPage}>Войти</Button>
         <Button className={styles.registration} onClick={goToRegistrationPage}>Регистрация</Button>
         <p className={styles.loginWith}>Войти с помошью</p>
         <section className={styles.loginWithContainer}>
