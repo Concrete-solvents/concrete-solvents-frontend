@@ -19,8 +19,6 @@ import styles from './login.module.css';
 //Enums
 import { FormErrors } from '@Enums/formErrors.enum';
 
-const EMAIL_PATTERN = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
 const Login: FC<ChildrenNever> = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
@@ -44,24 +42,20 @@ const Login: FC<ChildrenNever> = () => {
       <SelectLanguage />
       <form onSubmit={handleSubmit(handleFormSubmit)} className={styles.form}>
         <section className={styles.inputsContainer}>
-          {errors.email ? <span className={styles.inputError}>{errors.email.message}</span> : null}
+          {errors.emailOrUsername ? <span className={styles.inputError}>{errors.emailOrUsername.message}</span> : null}
           <section className={styles.inputContainer}>
             <div className={styles.icon}>
               <FontAwesomeIcon icon={faAt} />
             </div>
             <input
-              type='email'
+              type='text'
               className={`${errors.email ? styles.invalidInput : ''} ${styles.input}`}
-              placeholder={translate('email')}
-              aria-label={translate('email')}
-              {...register('email', {
+              placeholder={translate('emailOrUsername')}
+              aria-label={translate('emailOrUsername')}
+              {...register('emailOrUsername', {
                 required: {
                   value: true,
                   message: translate(FormErrors.MustFill),
-                },
-                pattern: {
-                  value: EMAIL_PATTERN,
-                  message: translate('wrongEmail'),
                 },
               })}
             />

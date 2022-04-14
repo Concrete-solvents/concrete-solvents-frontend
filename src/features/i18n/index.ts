@@ -8,7 +8,7 @@ import { Language } from '@Enums/language.enum';
 // Ru
 import registrationTranslationRu from '@Pages/registration/translations/ru/registrationTranslationRu.json';
 import welcomeTranslationRu from '@Pages/welcome/translations/ru/welcomeTranslationRu.json';
-import loginTranslationRu from "@Pages/login/translations/ru/loginTranslationRu.json';
+import loginTranslationRu from '@Pages/login/translations/ru/loginTranslationRu.json';
 
 // En
 import registrationTranslationEn from '@Pages/registration/translations/en/registrationTranslationEn.json';

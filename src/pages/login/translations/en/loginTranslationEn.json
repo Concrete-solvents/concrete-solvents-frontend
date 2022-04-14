@@ -1,7 +1,7 @@
 {
   "signUp": "Sign up",
   "signIn": "Sign in",
-  "email": "Email",
+  "emailOrUsername": "Email or Username",
   "password": "Password",
   "mustFill": "This field is required",
   "wrongEmail": "Wrong email",
