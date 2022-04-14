@@ -1,6 +1,8 @@
 .container {
   width: 100%;
   height: 100vh;
+
+  background: var(--blueBackground);
 }
 
 .buttons {
@@ -17,6 +19,10 @@
   margin: 0.5rem;
   padding: 0.5rem;
 
+  color: #fff;
+  border: 2px solid var(--blueBorder);
+  background-color: var(--blueInputAndButton);
+
   font-weight: 400;
 }
 
@@ -24,6 +30,10 @@
   width: 20rem;
   margin: 0.5rem;
   padding: 0.5rem;
+
+  color: #fff;
+  border: 2px solid var(--blueBorder);
+  background-color: var(--blueInputAndButton);
 
   font-weight: 100;
 }
