@@ -1,13 +1,14 @@
 // Libraries
-import { Language } from '@Features/i18n/types/language.type';
 import React from 'react';
-// @ts-ignore
 import { createRoot } from 'react-dom/client';
 
 // Components
 import { App } from './App';
 
-// I18n
+// Enums
+import { Language } from '@Enums/language.enum';
+
+// Features
 import i18n from '@Features/i18n/index';
 
 // Styles

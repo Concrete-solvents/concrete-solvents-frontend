@@ -1,6 +1,8 @@
 .container {
   width: 100%;
   height: 100vh;
+
+  background: var(--blueBackground);
 }
 
 .buttons {
@@ -13,7 +15,7 @@
 }
 
 .login {
-  width: 20rem;
+  width: 30rem;
   margin: 0.5rem;
   padding: 0.5rem;
 
@@ -21,7 +23,7 @@
 }
 
 .registration {
-  width: 20rem;
+  width: 30rem;
   margin: 0.5rem;
   padding: 0.5rem;
 

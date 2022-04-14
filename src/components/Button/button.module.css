@@ -7,7 +7,7 @@
 
   border: none;
   border-radius: 3px;
-  background-color: #78498d;
+  background-color: var(--blueInputAndButton);
 
   font-family: inherit;
 
