@@ -14,7 +14,7 @@ import { ChildrenNever } from '@Interfaces/childrenNever.interface';
 import { FormErrors } from '@Enums/formErrors.enum';
 
 // Features
-import { Language } from '@Features/i18n/types/language.type';
+import { Language } from '@Enums/language.enum';
 
 // Components
 import { Button } from '@Components/Button/Button';

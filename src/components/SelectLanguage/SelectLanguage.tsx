@@ -8,8 +8,8 @@ import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 // Interfaces
 import { ChildrenNever } from '@Interfaces/childrenNever.interface';
 
-// Features
-import { Language } from '@Features/i18n/types/language.type';
+// Enums
+import { Language } from '@Enums/language.enum';
 
 // Hooks
 import { usePopUp } from '@Hooks/usePopUp/usePopUp';
