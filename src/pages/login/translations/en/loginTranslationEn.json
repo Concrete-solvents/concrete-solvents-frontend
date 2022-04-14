@@ -1,0 +1,9 @@
+{
+  "signUp": "Sign up",
+  "signIn": "Sign in",
+  "email": "Email",
+  "password": "Password",
+  "mustFill": "This field is required",
+  "wrongEmail": "Wrong email",
+  "noAccountYet": "Don't have an account yet?"
+}
