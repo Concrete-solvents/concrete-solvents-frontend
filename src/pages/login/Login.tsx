@@ -9,15 +9,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Interfaces
 import { ChildrenNever } from '@Interfaces/childrenNever.interface';
 
+// Hooks
+import { useTriggerValidateOnChangeLanguage } from '@Hooks/useTriggerValidateOnChangeLanguage/useTriggerValidateOnChangeLanguage';
+
+//Enums
+import { FormErrors } from '@Enums/formErrors.enum';
+
 // Components
 import { Button } from '@Components/Button/Button';
 import { SelectLanguage } from '@Components/SelectLanguage/SelectLanguage';
 
 // Styles
 import styles from './login.module.css';
-
-//Enums
-import { FormErrors } from '@Enums/formErrors.enum';
 
 const Login: FC<ChildrenNever> = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -26,12 +29,12 @@ const Login: FC<ChildrenNever> = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ mode: 'onBlur' });
-  const { t: translate } = useTranslation('login');
+    trigger,
+  } = useForm({ mode: 'onChange' });
+  const { t: translate, i18n } = useTranslation('login');
+  useTriggerValidateOnChangeLanguage(i18n.language, errors, trigger);
 
-  function handleFormSubmit() {
-
-  }
+  function handleFormSubmit() {}
 
   function handleTogglePasswordVisible() {
     setIsPasswordVisible((value) => !value);
@@ -48,7 +51,7 @@ const Login: FC<ChildrenNever> = () => {
               <FontAwesomeIcon icon={faAt} />
             </div>
             <input
-              type='text'
+              type="text"
               className={`${errors.email ? styles.invalidInput : ''} ${styles.input}`}
               placeholder={translate('emailOrUsername')}
               aria-label={translate('emailOrUsername')}
@@ -81,7 +84,7 @@ const Login: FC<ChildrenNever> = () => {
               {isPasswordVisible ? <FontAwesomeIcon icon={faEyeSlash} /> : <FontAwesomeIcon icon={faEye} />}
             </Button>
           </section>
-          <Button className={styles.login} type='submit'>
+          <Button className={styles.login} type="submit">
             {translate('signIn')}
           </Button>
           <p className={styles.noAccountYet}>

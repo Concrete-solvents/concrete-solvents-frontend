@@ -12,9 +12,12 @@ import { ChildrenNever } from '@Interfaces/childrenNever.interface';
 
 // Enums
 import { FormErrors } from '@Enums/formErrors.enum';
-
-// Features
 import { Language } from '@Enums/language.enum';
+
+// Hooks
+import {
+  useTriggerValidateOnChangeLanguage,
+} from '@Hooks/useTriggerValidateOnChangeLanguage/useTriggerValidateOnChangeLanguage';
 
 // Components
 import { Button } from '@Components/Button/Button';
@@ -34,8 +37,10 @@ const Registration: FC<ChildrenNever> = () => {
     handleSubmit,
     formState: { errors },
     getValues,
+    trigger,
   } = useForm({ mode: 'onBlur' });
   const { t: translate } = useTranslation('registration');
+  useTriggerValidateOnChangeLanguage(i18n.language, errors, trigger);
 
   function handleFormSubmit() {}
 
