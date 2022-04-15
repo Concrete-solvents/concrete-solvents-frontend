@@ -1,6 +1,6 @@
 // Libraries
 import { faAt, faEye, faEyeSlash, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -15,9 +15,7 @@ import { FormErrors } from '@Enums/formErrors.enum';
 import { Language } from '@Enums/language.enum';
 
 // Hooks
-import {
-  useTriggerValidateOnChangeLanguage,
-} from '@Hooks/useTriggerValidateOnChangeLanguage/useTriggerValidateOnChangeLanguage';
+import { useTriggerValidateOnChangeLanguage } from '@Hooks/useTriggerValidateOnChangeLanguage/useTriggerValidateOnChangeLanguage';
 
 // Components
 import { Button } from '@Components/Button/Button';
@@ -26,7 +24,8 @@ import { SelectLanguage } from '@Components/SelectLanguage/SelectLanguage';
 // Styles
 import styles from './registration.module.css';
 
-const EMAIL_PATTERN = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const EMAIL_PATTERN =
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 const Registration: FC<ChildrenNever> = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -38,7 +37,11 @@ const Registration: FC<ChildrenNever> = () => {
     formState: { errors },
     getValues,
     trigger,
-  } = useForm({ mode: 'onBlur' });
+    watch,
+    setError,
+    clearErrors,
+  } = useForm({ mode: 'onChange' });
+  const password = watch('password');
   const { t: translate } = useTranslation('registration');
   useTriggerValidateOnChangeLanguage(i18n.language, errors, trigger);
 
@@ -51,6 +54,22 @@ const Registration: FC<ChildrenNever> = () => {
   function handleTogglePasswordConfirmationVisible() {
     setIsPasswordConfirmationVisible((value) => !value);
   }
+
+  /**
+   * @description: Set an error if the password and password confirmation are not equal, or clear the equality
+   * confirmation error if they equal
+   */
+  useEffect(() => {
+    if (!password) return;
+    if (errors.passwordConfirmation?.message === translate(FormErrors.MustFill)) return;
+    if (password !== getValues('passwordConfirmation')) {
+      setError('passwordConfirmation', {
+        message: translate('passwordShouldBeEquals'),
+      });
+    } else {
+      clearErrors('passwordConfirmation');
+    }
+  }, [password]);
 
   return (
     <div className={styles.container}>
@@ -132,15 +151,17 @@ const Registration: FC<ChildrenNever> = () => {
                 },
                 minLength: {
                   value: 3,
-                  message: i18n.language === Language.Russian
-                    ? 'Пароль должен быть больше 3 символов'
-                    : 'Password must be more that 3 characters long',
+                  message:
+                    i18n.language === Language.Russian
+                      ? 'Пароль должен быть больше 3 символов'
+                      : 'Password must be more that 3 characters long',
                 },
                 maxLength: {
                   value: 64,
-                  message: i18n.language === Language.Russian
-                    ? 'Пароль должен быть меньше 64 символов'
-                    : 'Password must be less that 64 characters long',
+                  message:
+                    i18n.language === Language.Russian
+                      ? 'Пароль должен быть меньше 64 символов'
+                      : 'Password must be less that 64 characters long',
                 },
               })}
             />
@@ -148,22 +169,24 @@ const Registration: FC<ChildrenNever> = () => {
               {isPasswordVisible ? <FontAwesomeIcon icon={faEyeSlash} /> : <FontAwesomeIcon icon={faEye} />}
             </Button>
           </section>
-          {errors.repeatPassword ? <span className={styles.inputError}>{errors.repeatPassword.message}</span> : null}
+          {errors.passwordConfirmation ? (
+            <span className={styles.inputError}>{errors.passwordConfirmation.message}</span>
+          ) : null}
           <section className={styles.inputContainer}>
             <div className={styles.icon}>
               <FontAwesomeIcon icon={faLock} />
             </div>
             <input
               type={isPasswordConfirmationVisible ? 'text' : 'password'}
-              className={`${errors.repeatPassword ? styles.invalidInput : ''} ${styles.input}`}
+              className={`${errors.passwordConfirmation ? styles.invalidInput : ''} ${styles.input}`}
               placeholder={translate('passwordConfirmation')}
               aria-label={translate('passwordConfirmation')}
-              {...register('repeatPassword', {
+              {...register('passwordConfirmation', {
+                validate: (value) => value === getValues('password') || translate('passwordShouldBeEquals'),
                 required: {
                   value: true,
                   message: translate(FormErrors.MustFill),
                 },
-                validate: (value) => value === getValues('password') || translate('passwordShouldBeEquals'),
               })}
             />
             <Button className={styles.changePasswordVisibility} onClick={handleTogglePasswordConfirmationVisible}>
