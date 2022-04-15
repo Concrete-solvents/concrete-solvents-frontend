@@ -46,7 +46,9 @@ const Login: FC<ChildrenNever> = () => {
       <SelectLanguage />
       <form onSubmit={handleSubmit(handleFormSubmit)} className={styles.form}>
         <section className={styles.inputsContainer}>
-          {errors.emailOrUsername ? <span className={styles.inputError}>{errors.emailOrUsername.message}</span> : null}
+          {errors.emailOrUsername ? (
+            <span className={styles.inputError} role='alert'>{errors.emailOrUsername.message}</span>
+          ) : null}
           <section className={styles.inputContainer}>
             <div className={styles.icon}>
               <FontAwesomeIcon icon={faAt} />
@@ -56,6 +58,7 @@ const Login: FC<ChildrenNever> = () => {
               className={`${errors.email ? styles.invalidInput : ''} ${styles.input}`}
               placeholder={translate('emailOrUsername')}
               aria-label={translate('emailOrUsername')}
+              aria-invalid={errors.email ? 'true' : 'false'}
               {...register('emailOrUsername', {
                 required: {
                   value: true,
@@ -64,7 +67,9 @@ const Login: FC<ChildrenNever> = () => {
               })}
             />
           </section>
-          {errors.password ? <span className={styles.inputError}>{errors.password.message}</span> : null}
+          {errors.password ? (
+            <span className={styles.inputError} role='alert'>{errors.password.message}</span>
+          ) : null}
           <section className={styles.inputContainer}>
             <div className={styles.icon}>
               <FontAwesomeIcon icon={faLock} />
@@ -74,6 +79,7 @@ const Login: FC<ChildrenNever> = () => {
               className={`${errors.password ? styles.invalidInput : ''} ${styles.input}`}
               placeholder={translate('password')}
               aria-label={translate('password')}
+              aria-invalid={errors.password ? 'true' : 'false'}
               {...register('password', {
                 required: {
                   value: true,
