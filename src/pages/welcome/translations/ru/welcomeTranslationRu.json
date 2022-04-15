@@ -1,7 +1,4 @@
 {
   "signUp": "Зарегистрироваться",
-  "signIn": "Войти",
-  "signInWith": "Войти с помощью",
-  "signInWithGoogle": "Войти с помощью google",
-  "signInWithGithub": "Войти с помощью github"
+  "signIn": "Войти"
 }

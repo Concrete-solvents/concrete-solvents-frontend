@@ -31,7 +31,7 @@
 }
 
 .input {
-  width: 30rem;
+  width: 100%;
   margin-bottom: 1rem;
   padding: 0.6rem;
 
@@ -52,7 +52,7 @@
 
 .changePasswordVisibility {
   position: absolute;
-  right: 3.7rem;
+  right: 1rem;
 
   display: flex;
   align-items: center;
@@ -67,8 +67,8 @@
 }
 
 .noAccountYet {
-  width: 33rem;
-  margin-top: 1rem;
+  width: 100%;
+  margin-top: 3rem;
 
   text-align: center;
 }
@@ -86,7 +86,6 @@
 }
 
 .login {
-  width: 33rem;
   padding: 0.5rem;
 
   background-color: var(--blueInputAndButton);

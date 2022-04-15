@@ -18,6 +18,7 @@ import { FormErrors } from '@Enums/formErrors.enum';
 // Components
 import { Button } from '@Components/Button/Button';
 import { SelectLanguage } from '@Components/SelectLanguage/SelectLanguage';
+import { SignInWith } from '@Components/SignInWith/SignInWith';
 
 // Styles
 import styles from './login.module.css';
@@ -87,6 +88,7 @@ const Login: FC<ChildrenNever> = () => {
           <Button className={styles.login} type="submit">
             {translate('signIn')}
           </Button>
+          <SignInWith />
           <p className={styles.noAccountYet}>
             {translate('noAccountYet')} <Link to={'/registration'}>{translate('signUp')}</Link>
           </p>
