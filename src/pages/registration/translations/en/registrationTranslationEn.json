@@ -9,5 +9,9 @@
   "mustFill": "This field is required",
   "passwordShouldBeEquals": "Passwords should be equals",
   "onlyLatinAndNumbers": "Username should consist only of Latin characters and numbers",
-  "wrongEmail": "Wrong email"
+  "wrongEmail": "Wrong email",
+  "passwordMaxLength": "Password must be less that {{maxLength}} characters long",
+  "passwordMinLength": "Password must be more that {{minLength}} characters long",
+  "usernameMaxLength": "Username must be less that {{maxLength}} characters long",
+  "usernameMinLength": "Username must be more that {{minLength}} characters long"
 }

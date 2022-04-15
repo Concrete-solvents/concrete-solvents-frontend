@@ -12,7 +12,6 @@ import { ChildrenNever } from '@Interfaces/childrenNever.interface';
 
 // Enums
 import { FormErrors } from '@Enums/formErrors.enum';
-import { Language } from '@Enums/language.enum';
 
 // Hooks
 import { useTriggerValidateOnChangeLanguage } from '@Hooks/useTriggerValidateOnChangeLanguage/useTriggerValidateOnChangeLanguage';
@@ -88,7 +87,7 @@ const Registration: FC<ChildrenNever> = () => {
               className={`${errors.username ? styles.invalidInput : ''} ${styles.input}`}
               placeholder={translate('username')}
               aria-label={translate('username')}
-              aria-invalid={errors.username ? 'true' : 'false'}
+              aria-invalid={Boolean(errors.username)}
               {...register('username', {
                 required: {
                   value: true,
@@ -96,17 +95,11 @@ const Registration: FC<ChildrenNever> = () => {
                 },
                 minLength: {
                   value: 3,
-                  message:
-                    i18n.language === Language.Russian
-                      ? 'Имя пользователя должно быть больше 3 символов'
-                      : 'Username must be more that 3 characters long',
+                  message: translate('usernameMinLength', { minLength: 3 }),
                 },
                 maxLength: {
-                  value: 25,
-                  message:
-                    i18n.language === Language.Russian
-                      ? 'Имя пользователя должно быть не больше 25 символов'
-                      : 'Username must be less that 25 characters long',
+                  value: 32,
+                  message: translate('usernameMaxLength', { maxLength: 32 }),
                 },
                 pattern: {
                   value: /^[A-z0-9]+$/,
@@ -127,7 +120,7 @@ const Registration: FC<ChildrenNever> = () => {
               className={`${errors.email ? styles.invalidInput : ''} ${styles.input}`}
               placeholder={translate('email')}
               aria-label={translate('email')}
-              aria-invalid={errors.email ? 'true' : 'false'}
+              aria-invalid={Boolean(errors.email)}
               {...register('email', {
                 required: {
                   value: true,
@@ -152,7 +145,7 @@ const Registration: FC<ChildrenNever> = () => {
               className={`${errors.password ? styles.invalidInput : ''} ${styles.input}`}
               placeholder={translate('password')}
               aria-label={translate('password')}
-              aria-invalid={errors.password ? 'true' : 'false'}
+              aria-invalid={Boolean(errors.password)}
               {...register('password', {
                 required: {
                   value: true,
@@ -160,17 +153,11 @@ const Registration: FC<ChildrenNever> = () => {
                 },
                 minLength: {
                   value: 3,
-                  message:
-                    i18n.language === Language.Russian
-                      ? 'Пароль должен быть больше 3 символов'
-                      : 'Password must be more that 3 characters long',
+                  message: translate('passwordMinLength', { minLength: 3 }),
                 },
                 maxLength: {
                   value: 64,
-                  message:
-                    i18n.language === Language.Russian
-                      ? 'Пароль должен быть меньше 64 символов'
-                      : 'Password must be less that 64 characters long',
+                  message: translate('passwordMaxLength', { maxLength: 64 }),
                 },
               })}
             />
@@ -190,7 +177,7 @@ const Registration: FC<ChildrenNever> = () => {
               className={`${errors.passwordConfirmation ? styles.invalidInput : ''} ${styles.input}`}
               placeholder={translate('passwordConfirmation')}
               aria-label={translate('passwordConfirmation')}
-              aria-invalid={errors.passwordConfirmation ? 'true' : 'false'}
+              aria-invalid={Boolean(errors.passwordConfirmation)}
               {...register('passwordConfirmation', {
                 validate: (value) => value === getValues('password') || translate('passwordShouldBeEquals'),
                 required: {

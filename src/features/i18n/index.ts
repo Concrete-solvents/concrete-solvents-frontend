@@ -17,6 +17,21 @@ import welcomeTranslationEn from '@Pages/welcome/translations/en/welcomeTranslat
 import loginTranslationEu from '@Pages/login/translations/en/loginTranslationEn.json';
 import signInTranslationEn from '@Components/SignInWith/translations/en/signInWithTranslationEn.json';
 
+const resources = {
+  [Language.English]: {
+    registration: registrationTranslationEn,
+    login: loginTranslationEu,
+    welcome: welcomeTranslationEn,
+    signInWith: signInTranslationEn,
+  },
+  [Language.Russian]: {
+    registration: registrationTranslationRu,
+    welcome: welcomeTranslationRu,
+    login: loginTranslationRu,
+    signInWith: signInTranslationRu,
+  },
+};
+
 i18n.use(initReactI18next).init({
   fallbackLng: Language.English,
   debug: false,
@@ -27,20 +42,8 @@ i18n.use(initReactI18next).init({
   interpolation: {
     escapeValue: false,
   },
-  resources: {
-    [Language.English]: {
-      registration: registrationTranslationEn,
-      login: loginTranslationEu,
-      welcome: welcomeTranslationEn,
-      signInWith: signInTranslationEn,
-    },
-    [Language.Russian]: {
-      registration: registrationTranslationRu,
-      welcome: welcomeTranslationRu,
-      login: loginTranslationRu,
-      signInWith: signInTranslationRu,
-    },
-  },
+  resources,
 });
 
 export default i18n;
+export { resources };

@@ -58,7 +58,7 @@ const Login: FC<ChildrenNever> = () => {
               className={`${errors.email ? styles.invalidInput : ''} ${styles.input}`}
               placeholder={translate('emailOrUsername')}
               aria-label={translate('emailOrUsername')}
-              aria-invalid={errors.email ? 'true' : 'false'}
+              aria-invalid={Boolean(errors.email)}
               {...register('emailOrUsername', {
                 required: {
                   value: true,
@@ -79,7 +79,7 @@ const Login: FC<ChildrenNever> = () => {
               className={`${errors.password ? styles.invalidInput : ''} ${styles.input}`}
               placeholder={translate('password')}
               aria-label={translate('password')}
-              aria-invalid={errors.password ? 'true' : 'false'}
+              aria-invalid={Boolean(errors.password)}
               {...register('password', {
                 required: {
                   value: true,
