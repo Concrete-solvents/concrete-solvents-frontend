@@ -1,6 +1,7 @@
 // Libraries
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
 
 // Types
 import { Language } from '@Enums/language.enum';
@@ -32,18 +33,21 @@ const resources = {
   },
 };
 
-i18n.use(initReactI18next).init({
-  fallbackLng: Language.English,
-  debug: false,
-  detection: {
-    order: ['localStorage', 'cookie'],
-    cache: ['localStorage', 'cookie'],
-  },
-  interpolation: {
-    escapeValue: false,
-  },
-  resources,
-});
+i18n
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    fallbackLng: Language.English,
+    debug: false,
+    interpolation: {
+      escapeValue: false,
+    },
+    resources,
+    detection: {
+      order: ['querystring', 'navigator'],
+      lookupQuerystring: 'lang',
+    },
+  });
 
 export default i18n;
 export { resources };

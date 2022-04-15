@@ -1,6 +1,6 @@
 enum Language {
-  Russian = 'Russian',
-  English = 'English',
+  Russian = 'ru',
+  English = 'en',
 }
 
 export { Language };
