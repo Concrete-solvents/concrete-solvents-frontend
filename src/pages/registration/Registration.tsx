@@ -15,6 +15,10 @@ import { FormErrors } from '@Enums/formErrors.enum';
 
 // Hooks
 import { useTriggerValidateOnChangeLanguage } from '@Hooks/useTriggerValidateOnChangeLanguage/useTriggerValidateOnChangeLanguage';
+import { useTypedDispatch } from '@Hooks/useTypedDispatch/useTypedDispatch';
+
+// Redux
+import { registerUser } from '@Features/user/redux/userSlice/user.slice';
 
 // Components
 import { Button } from '@Components/Button/Button';
@@ -42,9 +46,16 @@ const Registration: FC<ChildrenNever> = () => {
   } = useForm({ mode: 'onChange' });
   const password = watch('password');
   const { t: translate } = useTranslation('registration');
+  const dispatch = useTypedDispatch();
   useTriggerValidateOnChangeLanguage(i18n.language, errors, trigger);
 
-  function handleFormSubmit() {}
+  function handleFormSubmit() {
+    dispatch(registerUser({
+      username: getValues('username'),
+      email: getValues('email'),
+      password: getValues('password'),
+    }));
+  }
 
   function handleTogglePasswordVisible() {
     setIsPasswordVisible((value) => !value);
