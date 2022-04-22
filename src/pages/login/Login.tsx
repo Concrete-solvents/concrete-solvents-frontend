@@ -1,18 +1,22 @@
 // Libraries
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { faAt, faEye, faEyeSlash, faLock } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Interfaces
 import { ChildrenNever } from '@Interfaces/childrenNever.interface';
 
+// Redux
+import { loginUser } from '@Features/user/redux/userSlice/user.slice';
+
 // Hooks
 import { useTriggerValidateOnChangeLanguage } from '@Hooks/useTriggerValidateOnChangeLanguage/useTriggerValidateOnChangeLanguage';
+import { useTypedDispatch } from '@Hooks/useTypedDispatch/useTypedDispatch';
 
-//Enums
+// Enums
 import { FormErrors } from '@Enums/formErrors.enum';
 
 // Components
@@ -22,24 +26,37 @@ import { SignInWith } from '@Components/SignInWith/SignInWith';
 
 // Styles
 import styles from './login.module.css';
+import { useTypedSelector } from '@Hooks/useTypedSelector/useTypedSelector';
 
 const Login: FC<ChildrenNever> = () => {
+  const user = useTypedSelector((state) => state.user.user);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
+  const dispatch = useTypedDispatch();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
     trigger,
+    getValues,
   } = useForm({ mode: 'onChange' });
   const { t: translate, i18n } = useTranslation('login');
   useTriggerValidateOnChangeLanguage(i18n.language, errors, trigger);
 
-  function handleFormSubmit() {}
+  function handleFormSubmit() {
+    dispatch(loginUser({ username: getValues('emailOrUsername'), password: getValues('password') }));
+  }
 
   function handleTogglePasswordVisible() {
     setIsPasswordVisible((value) => !value);
   }
+
+  useEffect(() => {
+    if (user) {
+      navigate('');
+    }
+  }, [user]);
 
   return (
     <div className={styles.container}>
@@ -54,7 +71,7 @@ const Login: FC<ChildrenNever> = () => {
               <FontAwesomeIcon icon={faAt} />
             </div>
             <input
-              type="text"
+              type='text'
               className={`${errors.email ? styles.invalidInput : ''} ${styles.input}`}
               placeholder={translate('emailOrUsername')}
               aria-label={translate('emailOrUsername')}
@@ -91,7 +108,7 @@ const Login: FC<ChildrenNever> = () => {
               {isPasswordVisible ? <FontAwesomeIcon icon={faEyeSlash} /> : <FontAwesomeIcon icon={faEye} />}
             </Button>
           </section>
-          <Button className={styles.login} type="submit">
+          <Button className={styles.login} type='submit'>
             {translate('signIn')}
           </Button>
           <SignInWith />

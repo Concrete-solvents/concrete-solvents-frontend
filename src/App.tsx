@@ -6,6 +6,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // Redux
 import store from '@Features/redux/store';
 
+// Hocs
+import { WithAuth } from '@Hocs/withAuth/WithAuth';
+
 // Pages
 import { Registration } from '@Pages/registration/Registration';
 import { Welcome } from '@Pages/welcome/Welcome';
@@ -15,7 +18,8 @@ const App = () => (
   <Provider store={store}>
     <BrowserRouter>
       <Routes>
-        <Route path="" element={<Welcome />} />
+        <Route path="" element={<WithAuth><div>Главная</div></WithAuth>} />
+        <Route path="/welcome" element={<Welcome />} />
         <Route path="/login" element={<Login />} />
         <Route path="/registration" element={<Registration />} />
       </Routes>
