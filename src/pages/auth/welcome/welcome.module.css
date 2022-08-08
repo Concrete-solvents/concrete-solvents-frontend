@@ -1,0 +1,20 @@
+.buttons {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  height: 100vh;
+}
+
+.button {
+  width: 30rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+
+  color: #fff;
+  border: 1px solid var(--border);
+  background-color: var(--inputAndButton);
+
+  font-weight: 400;
+}

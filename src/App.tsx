@@ -10,19 +10,42 @@ import store from '@Features/redux/store';
 import { WithAuth } from '@Hocs/withAuth/WithAuth';
 
 // Pages
-import { Registration } from '@Pages/registration/Registration';
-import { Welcome } from '@Pages/welcome/Welcome';
-import { Login } from '@Pages/login/Login';
+import { Main } from '@Pages/main/Main';
+import { Login } from '@Pages/auth/login/Login';
+import { Registration } from '@Pages/auth/registration/Registration';
+import { SocialRegistration } from '@Pages/auth/social/SocialRegistration';
+import { Welcome } from '@Pages/auth/welcome/Welcome';
+import { Profile } from '@Pages/profile/Profile';
 
 const App = () => (
   <Provider store={store}>
     <BrowserRouter>
-      <Routes>
-        <Route path="" element={<WithAuth><div>Главная</div></WithAuth>} />
-        <Route path="/welcome" element={<Welcome />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/registration" element={<Registration />} />
-      </Routes>
+      <div className="darkTheme">
+        <Routes>
+          <Route
+            path=""
+            element={
+              <WithAuth>
+                <Main />
+              </WithAuth>
+            }
+          />
+          <Route path="/auth">
+            <Route path="welcome" element={<Welcome />} />
+            <Route path="login" element={<Login />} />
+            <Route path="registration" element={<Registration />} />
+            <Route path="social" element={<SocialRegistration />} />
+          </Route>
+          <Route
+            path="/profile/:id"
+            element={
+              <WithAuth>
+                <Profile />
+              </WithAuth>
+            }
+          />
+        </Routes>
+      </div>
     </BrowserRouter>
   </Provider>
 );

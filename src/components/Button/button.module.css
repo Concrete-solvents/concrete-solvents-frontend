@@ -16,6 +16,7 @@
 
 .button:disabled {
   cursor: default;
+  filter: brightness(0.5);
 }
 
 .button:hover:enabled {
@@ -28,4 +29,8 @@
 
 .rounded {
   border-radius: 20px;
+}
+
+.loading {
+  cursor: wait !important;
 }

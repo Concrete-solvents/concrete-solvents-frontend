@@ -21,6 +21,7 @@ module.exports = merge(common, {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
     clean: true,
   },
   plugins: [new webpack.DefinePlugin(envKeys)],

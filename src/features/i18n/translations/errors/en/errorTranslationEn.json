@@ -1,0 +1,12 @@
+{
+  "Permission error": "Permission error",
+  "Wrong login or password": "Wrong login or password",
+  "The login is not compatible with the template": "The user name must consist only of characters of the Latin alphabet and numbers",
+  "The user does not exist": "The user does not exist",
+  "The email does not linked": "The email does not linked",
+  "The email already confirmed": "The email already confirmed",
+  "Email not found or not confirmed": "Email not found or not confirmed",
+  "The email is already busy": "User with the given email already exist",
+  "The login is already busy": "User with the given login already exist",
+  "Server error": "Server error, try again later"
+}

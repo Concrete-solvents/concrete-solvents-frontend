@@ -7,29 +7,29 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import { Language } from '@Enums/language.enum';
 
 // Ru
-import registrationTranslationRu from '@Pages/registration/translations/ru/registrationTranslationRu.json';
-import welcomeTranslationRu from '@Pages/welcome/translations/ru/welcomeTranslationRu.json';
-import loginTranslationRu from '@Pages/login/translations/ru/loginTranslationRu.json';
+import authTranslationRu from '@Pages/auth/translations/ru/authTranlationRu.json';
 import signInTranslationRu from '@Components/SignInWith/translations/ru/signInWithTranslationRu.json';
+import errorTranslationRu from '@Features/i18n/translations/errors/ru/errorTranslationRu.json';
+import sidebarTranslationRu from '@Components/Sidebar/translations/ru/sidebarTranslationRu.json';
 
 // En
-import registrationTranslationEn from '@Pages/registration/translations/en/registrationTranslationEn.json';
-import welcomeTranslationEn from '@Pages/welcome/translations/en/welcomeTranslationEn.json';
-import loginTranslationEu from '@Pages/login/translations/en/loginTranslationEn.json';
+import authTranslationEn from '@Pages/auth/translations/en/authTranslationEn.json';
 import signInTranslationEn from '@Components/SignInWith/translations/en/signInWithTranslationEn.json';
+import errorTranslationEn from '@Features/i18n/translations/errors/en/errorTranslationEn.json';
+import sidebarTranslationEn from '@Components/Sidebar/translations/en/sidebarTranslationEn.json';
 
 const resources = {
   [Language.English]: {
-    registration: registrationTranslationEn,
-    login: loginTranslationEu,
-    welcome: welcomeTranslationEn,
     signInWith: signInTranslationEn,
+    error: errorTranslationEn,
+    auth: authTranslationEn,
+    sidebar: sidebarTranslationEn,
   },
   [Language.Russian]: {
-    registration: registrationTranslationRu,
-    welcome: welcomeTranslationRu,
-    login: loginTranslationRu,
     signInWith: signInTranslationRu,
+    error: errorTranslationRu,
+    auth: authTranslationRu,
+    sidebar: sidebarTranslationRu,
   },
 };
 

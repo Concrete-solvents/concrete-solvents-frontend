@@ -1,5 +1,5 @@
 interface LoginUserRequestDto {
-  username?: string;
+  login?: string;
   email?: string;
   password: string;
 }

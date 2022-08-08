@@ -7,13 +7,42 @@
 }
 
 :root {
-  --blueInputAndButton: #314482;
-  --blueIcon: #0d1f49;
-  --blueBackground: linear-gradient(45deg, #16243d, #2d2b78, #2b3a47);
-  --blueBorder: #374d8f;
-  --invalidColor: #c71212;
+  --invalidColor: #de1b1b;
+}
+
+.blueTheme {
+  color: var(--color);
+  background: linear-gradient(45deg, #16243d, #2d2b78, #2b3a47);
+
+  --inputAndButton: #314482;
+  --icon: #0d1f49;
+  --border: #374d8f;
+}
+
+.darkTheme {
+  color: var(--color);
+  background: #242424;
+
+  --inputAndButton: #1c1c1c;
+  --icon: #111;
+  --border: #111;
+  --color: #fff;
 }
 
 body {
   font-family: Inter, sans-serif;
+}
+
+a {
+  text-decoration: none;
+
+  color: white;
+}
+
+a:hover {
+  filter: brightness(0.85);
+}
+
+a:active {
+  filter: brightness(0.7);
 }

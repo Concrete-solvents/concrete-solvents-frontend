@@ -1,7 +1,9 @@
 interface User {
   id: number;
-  username: string;
-  email: string;
+  login: string | null;
+  username: string | null;
+  email: string | null;
+  isVerified: boolean;
   avatarUrl: string;
 }
 

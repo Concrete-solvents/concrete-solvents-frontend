@@ -9,10 +9,20 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   type?: 'reset' | 'submit' | 'button';
   isRounded?: boolean;
   forwardedRef?: ForwardedRef<HTMLButtonElement>;
+  isLoading?: boolean;
 }
 
-const Button: FC<Props> = React.memo(({ children, className, type = 'button', forwardedRef, isRounded = false, ...props }: Props) => (
-  <button className={`${styles.button} ${className} ${isRounded ? styles.rounded : ''}`} type={type} {...props} ref={forwardedRef}>{children}</button>
-));
+const Button: FC<Props> = React.memo(
+  ({ children, className, type = 'button', forwardedRef, isRounded = false, isLoading = false, ...props }: Props) => (
+    <button
+      className={`${styles.button} ${className} ${isRounded ? styles.rounded : ''} ${isLoading ? styles.loading : ''}`}
+      type={type}
+      {...props}
+      ref={forwardedRef}
+    >
+      {children}
+    </button>
+  ),
+);
 
 export { Button };

@@ -1,5 +1,8 @@
+import { Language } from '@Enums/language.enum';
+
 interface RegisterUserRequest {
-  username: string;
+  login: string;
+  language: Language,
   email: string;
   password: string;
 }

@@ -1,0 +1,70 @@
+.pageContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  height: 100vh;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  font-size: 1.3rem;
+}
+
+.label {
+  margin-bottom: 2rem;
+}
+
+.inputsContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.inputWithIconContainer {
+  position: relative;
+
+  display: flex;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 3rem;
+  height: 2.7rem;
+
+  background-color: var(--icon);
+
+  font-size: 1.3rem;
+}
+
+.input {
+  width: 30rem;
+  margin-bottom: 1rem;
+  padding: 0.6rem;
+
+  color: white;
+  border: 2px solid var(--border);
+  background-color: var(--inputAndButton);
+
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.invalidInput {
+  border: 2px solid var(--invalidColor);
+}
+
+.continueButton {
+  margin-top: 1.5rem;
+  padding: 0.7rem 3rem;
+
+  background-color: var(--inputAndButton);
+}

@@ -20,18 +20,19 @@
   height: 64px;
   margin: 8px;
 
-  animation: loading 1.2s linear infinite;
+  animation: loading 1s linear infinite;
 
-  border: 8px solid white;
+  border: 8px solid;
+  border-color: white transparent transparent;
   border-radius: 50%;
 }
 
 .loadingRing div:nth-child(1) {
-  animation-delay: -0.45s;
+  animation-delay: -0.4s;
 }
 
 .loadingRing div:nth-child(2) {
-  animation-delay: -0.3s;
+  animation-delay: -0.2s;
 }
 
 @keyframes loading {

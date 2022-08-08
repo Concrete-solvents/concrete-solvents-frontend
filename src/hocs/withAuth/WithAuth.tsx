@@ -20,7 +20,8 @@ interface Props {
 }
 
 const WithAuth: FC<Props> = ({ children }: Props) => {
-  const getMeState = useTypedSelector((state) => state.user.getMeState);
+  const getMeStatus = useTypedSelector((state) => state.user.getMeStatus);
+  const user = useTypedSelector((state) => state.user.user);
 
   const dispatch = useTypedDispatch();
 
@@ -28,7 +29,11 @@ const WithAuth: FC<Props> = ({ children }: Props) => {
     dispatch(getMe());
   }, []);
 
-  if (getMeState.isLoading) {
+  if (getMeStatus.error) {
+    return <Navigate to="/auth/welcome" />;
+  }
+
+  if (getMeStatus.isLoading || !user) {
     return (
       <div className={styles.container}>
         <Loading />
@@ -36,8 +41,8 @@ const WithAuth: FC<Props> = ({ children }: Props) => {
     );
   }
 
-  if (getMeState.error) {
-    return <Navigate to="/welcome" />;
+  if (!user!.email || !user!.login) {
+    return <Navigate to="/auth/social" />;
   }
 
   return (

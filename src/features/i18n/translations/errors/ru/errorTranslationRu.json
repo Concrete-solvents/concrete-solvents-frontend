@@ -1,0 +1,12 @@
+{
+  "Permission error": "Ошибка доступа",
+  "Wrong login or password": "Неправильный логин или пароль",
+  "The login is not compatible with the template": "Логин должен состоять только из символов латинского алфавита и цифр",
+  "The user does not exist": "Пользователь не существует",
+  "The email does not linked": "Адрес электронной почты не привязан",
+  "The email already confirmed": "Адрес электронной почты уже подтверждён",
+  "Email not found or not confirmed": "Адрес электронной почты не найден или не подтверждён",
+  "The email is already busy": "Пользователь с данным адресом электронной почты уже существует",
+  "The login is already busy": "Пользователь с данным логином уже существует",
+  "Server error": "Ошибка сервера, попробуйте позже"
+}

@@ -1,5 +1,5 @@
 enum FormErrors {
-  MustFill = 'mustFill',
+  MustFill = 'Must fill',
 }
 
 export { FormErrors };

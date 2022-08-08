@@ -49,6 +49,7 @@
 .loginWithContainer {
   display: flex;
   justify-content: space-around;
+  gap: 1rem;
 
   width: 8rem;
   margin-top: 1rem;

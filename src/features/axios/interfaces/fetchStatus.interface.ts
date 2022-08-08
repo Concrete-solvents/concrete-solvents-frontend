@@ -1,6 +1,9 @@
+// Enums
+import { ServerError } from '@Enums/serverError.enum';
+
 interface FetchStatus {
   isLoading: boolean;
-  error: string;
+  error: ServerError;
 }
 
 export type { FetchStatus };

@@ -20,7 +20,12 @@ import { Button } from '@Components/Button/Button';
 // Styles
 import styles from './selectLanguage.module.css';
 
-const SelectLanguage: FC<ChildrenNever> = () => {
+interface Props extends ChildrenNever {
+  isAbsolute?: boolean;
+  isTop?: boolean;
+}
+
+const SelectLanguage: FC<Props> = ({ isAbsolute = true, isTop = false }: Props) => {
   const { togglePopUpVisibility, isPopUpVisible, popUpRef, buttonRef } = usePopUp();
   const { i18n } = useTranslation();
 
@@ -30,13 +35,13 @@ const SelectLanguage: FC<ChildrenNever> = () => {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={isAbsolute ? styles.absoluteContainer : styles.container}>
       <p>{i18n.language === Language.English ? 'English' : 'Русский'}</p>
       <Button forwardedRef={buttonRef} className={styles.collapseButton} onClick={togglePopUpVisibility}>
         <FontAwesomeIcon icon={isPopUpVisible ? faAngleUp : faAngleDown}/>
       </Button>
       {isPopUpVisible ?
-        <div ref={popUpRef} className={styles.popUp}>
+        <div ref={popUpRef} className={isTop? styles.popUpTop : styles.popUp}>
           <Button className={styles.selectButton} onClick={() => setLanguage(Language.Russian)}>Русский</Button>
           <Button className={styles.selectButton} onClick={() => setLanguage(Language.English)}>English</Button>
         </div>
