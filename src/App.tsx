@@ -18,6 +18,7 @@ import { Login } from '@Pages/auth/login/Login';
 import { Registration } from '@Pages/auth/registration/Registration';
 import { SocialRegistration } from '@Pages/auth/social/SocialRegistration';
 import { Welcome } from '@Pages/auth/welcome/Welcome';
+import { UserEdit } from '@Pages/users/userEdit/UserEdit';
 
 const App = () => (
   <Provider store={store}>
@@ -59,6 +60,14 @@ const App = () => (
             element={
               <WithAuth>
                 <UserProfilePage />
+              </WithAuth>
+            }
+          />
+          <Route
+            path="/users/:userId/edit"
+            element={
+              <WithAuth>
+                <UserEdit />
               </WithAuth>
             }
           />
