@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+
+  width: 100%;
+  padding: 10px;
+
+  background-color: rgb(55 66 95 / 0.2);
+  box-shadow: rgb(0 0 0 / 0.25) 0 4px 11px;
+  gap: 5px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+}
+
+.aboutUser {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.username {
+  font-size: 16px;
+}
+
+.level {
+  color: rgb(255 255 255 / 0.5);
+
+  font-size: 14px;
+}

@@ -1,4 +1,8 @@
 // Libraries
+import { GroupsPage } from '@Pages/groups/GroupsPage';
+import { Main } from '@Pages/main/Main';
+import { FriendsPage } from '@Pages/users/friendsPage/FriendsPage';
+import { UserProfilePage } from '@Pages/users/userProfilePage/UserProfilePage';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -7,15 +11,13 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import store from '@Features/redux/store';
 
 // Hocs
-import { WithAuth } from '@Hocs/withAuth/WithAuth';
+import { WithAuth } from '@Common/hocs/withAuth/WithAuth';
 
 // Pages
-import { Main } from '@Pages/main/Main';
 import { Login } from '@Pages/auth/login/Login';
 import { Registration } from '@Pages/auth/registration/Registration';
 import { SocialRegistration } from '@Pages/auth/social/SocialRegistration';
 import { Welcome } from '@Pages/auth/welcome/Welcome';
-import { Profile } from '@Pages/profile/Profile';
 
 const App = () => (
   <Provider store={store}>
@@ -37,10 +39,26 @@ const App = () => (
             <Route path="social" element={<SocialRegistration />} />
           </Route>
           <Route
-            path="/profile/:id"
+            path="/groups"
             element={
               <WithAuth>
-                <Profile />
+                <GroupsPage />
+              </WithAuth>
+            }
+          />
+          <Route
+            path="/users/:id/friends"
+            element={
+              <WithAuth>
+                <FriendsPage />
+              </WithAuth>
+            }
+          />
+          <Route
+            path="/users/:userId"
+            element={
+              <WithAuth>
+                <UserProfilePage />
               </WithAuth>
             }
           />

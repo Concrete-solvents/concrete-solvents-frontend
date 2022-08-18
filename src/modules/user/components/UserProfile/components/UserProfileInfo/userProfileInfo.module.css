@@ -1,0 +1,76 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  width: 300px;
+  height: calc(100vh - 40px);
+  margin-top: -20px;
+  margin-right: -20px;
+  padding: 40px;
+
+  background-color: rgb(35 35 35 / 0.85);
+  gap: var(--paddingMedium);
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+
+  border-radius: 50%;
+}
+
+.level {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+
+  width: 100%;
+
+  text-align: center;
+  gap: 5px;
+}
+
+.levelBar {
+  width: 100%;
+  height: 20px;
+
+  border-radius: 15px;
+  background-color: #66708a;
+}
+
+.levelProgress {
+  width: 60%;
+  height: 20px;
+
+  border-radius: 15px;
+  background-color: #3f568f;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+
+  width: 100%;
+  gap: 10px;
+}
+
+.images {
+  display: flex;
+  gap: 10px;
+}
+
+.image {
+  height: 50px;
+
+  border-radius: 50%;
+}
+
+.firstInfoItem {
+  margin-top: 20px;
+}
+
+.infoItemHeading {
+  align-self: flex-start;
+}

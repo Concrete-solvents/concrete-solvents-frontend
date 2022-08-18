@@ -1,16 +1,12 @@
 // Libraries
+import { Button } from '@Common/components/Button/Button';
+import { SelectLanguage } from '@Common/components/SelectLanguage/SelectLanguage';
+import { SignInWith } from '@Common/components/SignInWith/SignInWith';
+import { ChildrenNever } from '@Common/interfaces/childrenNever.interface';
 import React from 'react';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-
-// Interfaces
-import { ChildrenNever } from '@Interfaces/childrenNever.interface';
-
-// Components
-import { Button } from '@Components/Button/Button';
-import { SelectLanguage } from '@Components/SelectLanguage/SelectLanguage';
-import { SignInWith } from '@Components/SignInWith/SignInWith';
 
 // Styles
 import authStyles from '@Pages/auth/auth.module.css';

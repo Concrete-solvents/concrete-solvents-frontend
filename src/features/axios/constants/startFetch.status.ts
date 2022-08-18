@@ -1,5 +1,5 @@
 // Features
-import { ServerError } from '@Enums/serverError.enum';
+import { ServerError } from '@Common/enums/serverError.enum';
 
 // Interfaces
 import { FetchStatus } from '@Features/axios/interfaces/fetchStatus.interface';

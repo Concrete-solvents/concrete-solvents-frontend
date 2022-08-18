@@ -6,7 +6,7 @@ import { BASE_FETCH_STATUS } from '@Features/axios/constants/baseFetch.status';
 import { START_FETCH_STATUS } from '@Features/axios/constants/startFetch.status';
 
 // Enums
-import { ServerError } from '@Enums/serverError.enum';
+import { ServerError } from '@Common/enums/serverError.enum';
 
 // Interfaces
 import { User } from '@Features/user/interfaces/user.interface';
@@ -36,7 +36,7 @@ const initialState: InitialState = {
   getMeStatus: BASE_FETCH_STATUS,
   updateUserStatus: BASE_FETCH_STATUS,
   settings: {
-    isSideBarCollapsed: false,
+    isSideBarCollapsed: JSON.parse(localStorage.getItem('isSidebarCollapsed') || 'false'),
   },
 };
 
@@ -112,6 +112,7 @@ const userSlice = createSlice({
     },
     toggleCollapseSidebar(state) {
       state.settings.isSideBarCollapsed = !state.settings.isSideBarCollapsed;
+      localStorage.setItem('isSidebarCollapsed', JSON.stringify(state.settings.isSideBarCollapsed));
     },
   },
   extraReducers: (builder) => {

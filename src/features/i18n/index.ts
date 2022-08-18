@@ -4,19 +4,19 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 // Types
-import { Language } from '@Enums/language.enum';
+import { Language } from '@Common/enums/language.enum';
 
 // Ru
 import authTranslationRu from '@Pages/auth/translations/ru/authTranlationRu.json';
-import signInTranslationRu from '@Components/SignInWith/translations/ru/signInWithTranslationRu.json';
+import signInTranslationRu from '@Common/components/SignInWith/translations/ru/signInWithTranslationRu.json';
 import errorTranslationRu from '@Features/i18n/translations/errors/ru/errorTranslationRu.json';
-import sidebarTranslationRu from '@Components/Sidebar/translations/ru/sidebarTranslationRu.json';
+import sidebarTranslationRu from '@Common/components/Sidebar/translations/ru/sidebarTranslationRu.json';
 
 // En
 import authTranslationEn from '@Pages/auth/translations/en/authTranslationEn.json';
-import signInTranslationEn from '@Components/SignInWith/translations/en/signInWithTranslationEn.json';
+import signInTranslationEn from '@Common/components/SignInWith/translations/en/signInWithTranslationEn.json';
 import errorTranslationEn from '@Features/i18n/translations/errors/en/errorTranslationEn.json';
-import sidebarTranslationEn from '@Components/Sidebar/translations/en/sidebarTranslationEn.json';
+import sidebarTranslationEn from '@Common/components/Sidebar/translations/en/sidebarTranslationEn.json';
 
 const resources = {
   [Language.English]: {

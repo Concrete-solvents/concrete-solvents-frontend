@@ -1,4 +1,4 @@
-import { Language } from '@Enums/language.enum';
+import { Language } from '@Common/enums/language.enum';
 
 interface RegisterUserRequest {
   login: string;

@@ -8,25 +8,30 @@
 
 :root {
   --invalidColor: #de1b1b;
+  --paddingMedium: 20px;
+  --paddingBig: 30px;
+  --fzBig: 20px;
+  --fzBigger: 30px;
+  --inactiveIconColor: rgb(255 255 255 / 0.5);
 }
 
 .blueTheme {
-  color: var(--color);
-  background: linear-gradient(45deg, #16243d, #2d2b78, #2b3a47);
-
   --inputAndButton: #314482;
   --icon: #0d1f49;
   --border: #374d8f;
+  
+  color: var(--color);
+  background: linear-gradient(45deg, #16243d, #2d2b78, #2b3a47);
 }
 
 .darkTheme {
-  color: var(--color);
-  background: #242424;
-
   --inputAndButton: #1c1c1c;
   --icon: #111;
   --border: #111;
   --color: #fff;
+  
+  color: var(--color);
+  background: #202124;
 }
 
 body {

@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 40px;
+  padding: 15px;
+
+  background-color: rgb(35 35 35 / 0.61);
+}
+
+.topRightContainer {
+  display: flex;
+  gap: 40px;
+}
+
+.selectUserIcon {
+  margin-left: 10px;
+}

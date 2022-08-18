@@ -1,0 +1,67 @@
+.container {
+  display: flex;
+
+  width: 100%;
+  gap: var(--paddingMedium);
+}
+
+.showcases {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  width: 100%;
+  gap: var(--paddingBig);
+}
+
+.showcaseContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--paddingMedium);
+}
+
+.images {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: var(--paddingMedium);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 5px;
+}
+
+.tradeStats {
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 20px;
+}
+
+.bestGameImg {
+  width: 300px;
+  height: 150px;
+
+  border-radius: 5px;
+}
+
+.bestGame {
+  display: flex;
+
+  font-size: 20px;
+  gap: 40px;
+}
+
+.bestGameDescribe {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+@media screen and (max-width: 1281px) {
+  .images {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

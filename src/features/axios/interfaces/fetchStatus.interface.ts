@@ -1,5 +1,5 @@
 // Enums
-import { ServerError } from '@Enums/serverError.enum';
+import { ServerError } from '@Common/enums/serverError.enum';
 
 interface FetchStatus {
   isLoading: boolean;

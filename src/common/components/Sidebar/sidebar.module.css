@@ -1,0 +1,23 @@
+.sidebar {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  min-width: 40px;
+  height: calc(100vh - 40px);
+  padding: var(--paddingMedium) 10px;
+  gap: var(--paddingBig);
+}
+
+.logoutBtn {
+  position: absolute;
+  bottom: var(--paddingMedium);
+}
+
+.icon {
+  color: var(--inactiveIconColor);
+
+  font-size: 20px;
+}

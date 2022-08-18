@@ -1,0 +1,44 @@
+.input {
+  width: 100%;
+  height: 2.7rem;
+  margin-bottom: 1rem;
+  padding: 0.6rem;
+
+  color: #fff;
+  border: 1px solid var(--border);
+  background-color: var(--inputAndButton);
+
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.errorMessage {
+  color: var(--errorColor);
+
+  font-size: 14px;
+}
+
+.errorBorder {
+  border: 2px solid red;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.row {
+  position: relative;
+
+  display: flex;
+
+  width: 100%;
+}
+
+.inputError {
+  margin-bottom: 5px;
+
+  color: red;
+}

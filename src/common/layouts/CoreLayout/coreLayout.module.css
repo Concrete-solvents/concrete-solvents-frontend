@@ -1,0 +1,18 @@
+.sidebarAndContent {
+  display: flex;
+
+  height: 100%;
+}
+
+.content {
+  width: 100%;
+  padding: var(--paddingMedium);
+}
+
+.container {
+  overflow: hidden;
+
+  height: 100vh;
+
+  background: linear-gradient(180deg, rgb(30 58 166 / 0.2) 0%, rgb(6 7 26 / 1) 100%) no-repeat;
+}

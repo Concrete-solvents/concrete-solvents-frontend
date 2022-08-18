@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.loginWith {
+  margin-top: var(--paddingMedium);
+
+  color: white;
+}
+
+.loginWith::after {
+  display: inline-block;
+
+  width: 100%;
+  height: 0.5em;
+  margin-right: -100%;
+  margin-left: 4px;
+
+  content: '';
+  vertical-align: bottom;
+
+  border-top: 1px solid #fff;
+}
+
+.loginWith::before {
+  display: inline-block;
+
+  width: 100%;
+  height: 0.5em;
+  margin-right: 4px;
+  margin-left: -100%;
+
+  content: '';
+  vertical-align: bottom;
+
+  border-top: 1px solid #fff;
+}
+
+.loginWithContainer {
+  display: flex;
+  justify-content: space-around;
+  gap: var(--paddingMedium);
+
+  width: 8rem;
+  margin-top: var(--paddingMedium);
+}
