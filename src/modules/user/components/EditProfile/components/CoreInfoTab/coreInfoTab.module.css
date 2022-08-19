@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  flex-direction: column;
+
+  margin: 20px 0 20px 200px;
+}
+
+.avatar {
+  display: flex;
+  align-items: flex-end;
+}
+
+.containerImg {
+  margin-right: 40px;
+}
+
+.avatarTitle {
+  display: flex;
+  justify-content: flex-start;
+
+  margin: 0 5px 10px 0;
+
+  letter-spacing: 1px;
+
+  font-size: 24px;
+}
+
+.imgDescription {
+  margin-top: 10px;
+
+  font-size: 8px;
+}
+
+.img184 {
+  width: 184px;
+  height: 184px;
+  margin-right: 40px;
+}
+
+.img64 {
+  width: 64px;
+  height: 64px;
+}
+
+.img32 {
+  width: 32px;
+  height: 32px;
+}
