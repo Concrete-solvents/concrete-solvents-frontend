@@ -1,0 +1,48 @@
+.main {
+  margin: 20px 0 0 40px;
+}
+
+.container {
+  position: relative;
+
+  display: flex;
+
+  overflow: hidden;
+  align-items: center;
+
+  width: 200px;
+  height: 34px;
+  margin-bottom: 6px;
+  padding-left: 4px;
+
+  cursor: pointer;
+
+  color: #fff;
+  border-radius: 3px;
+}
+
+.container:hover {
+  cursor: pointer;
+}
+
+.container::before {
+  position: absolute;
+  top: 0;
+  left: -100%;
+
+  width: 200%;
+  height: 100%;
+
+  content: '';
+  transition: left 0.4s;
+
+  background: linear-gradient(to left, transparent, transparent 50%, #3d4450 50%, #3d4450);
+}
+
+.container:hover::before {
+  left: 0;
+}
+
+.tab {
+  position: relative;
+}

@@ -1,13 +1,20 @@
 .container {
   display: flex;
   flex-direction: column;
-
-  margin: 20px 0 20px 200px;
 }
 
 .avatar {
   display: flex;
   align-items: flex-end;
+
+  margin-bottom: 20px;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 20px;
 }
 
 .containerImg {
@@ -19,22 +26,99 @@
   justify-content: flex-start;
 
   margin: 0 5px 10px 0;
+  padding-bottom: 10px;
 
   letter-spacing: 1px;
 
+  border-bottom: 2px solid rgb(228 228 228 / 0.1);
+
   font-size: 24px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.buttonCancel {
+  width: 200px;
+  height: 34px;
+
+  color: #dfe3e6;
+  border: none;
+  border-radius: 3px;
+  background: #3d4450;
+}
+
+.buttonCancel:hover {
+  cursor: pointer;
+
+  border: 1px solid white;
+}
+
+.buttonAccept {
+  width: 200px;
+  height: 34px;
+  margin-left: 10px;
+
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  background: linear-gradient(to right, #47bfff 0%, #1a44c2 60%);
+  background-size: 330% 100%;
+}
+
+.buttonAccept:hover {
+  cursor: pointer;
+  transition: 1s;
+
+  border: 1px solid white;
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 20px;
+}
+
+.inputName {
+  height: 42px;
+  padding-left: 4px;
+
+  color: #909090;
+
+  border: none;
+  background-color: rgb(0 0 0 / 0.25);
+  box-shadow: inset 1px 1px 0 #000a;
+
+  font-size: 14px;
+}
+
+.inputAbout {
+  height: 62px;
+  padding: 6px 0 0 6px;
+
+  resize: none;
+
+  color: #909090;
+
+  border: none;
+  background-color: rgb(0 0 0 / 0.25);
+  box-shadow: inset 1px 1px 0 #000a;
+
+  font-size: 14px;
 }
 
 .imgDescription {
   margin-top: 10px;
 
-  font-size: 8px;
+  font-size: 9px;
 }
 
 .img184 {
   width: 184px;
   height: 184px;
-  margin-right: 40px;
 }
 
 .img64 {

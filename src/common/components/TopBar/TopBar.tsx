@@ -2,6 +2,7 @@
 import { faAngleDown, faYenSign } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Common
 import { useTypedSelector } from '@Common/hooks/useTypedSelector/useTypedSelector';
@@ -12,6 +13,11 @@ import styles from './topBar.module.css';
 
 const TopBar: FC<ChildrenNever> = () => {
   const user = useTypedSelector((state) => state.user.user);
+  const navigation = useNavigate()
+
+  const goToEditProfile = () => {
+    navigation(`/users/${user?.id}/edit`)
+  }
   
   return (
     <section className={styles.container}>
@@ -22,7 +28,7 @@ const TopBar: FC<ChildrenNever> = () => {
         <p>
           777 <FontAwesomeIcon icon={faYenSign} />
         </p>
-        <p>
+        <p className={styles.name} onClick={goToEditProfile}>
           {user?.username || user?.login}
           <span className={styles.selectUserIcon}>
             <FontAwesomeIcon icon={faAngleDown} />
