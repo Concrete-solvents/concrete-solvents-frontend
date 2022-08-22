@@ -9,6 +9,10 @@
   background-color: rgb(35 35 35 / 0.61);
 }
 
+.name {
+  cursor: pointer;
+}
+
 .topRightContainer {
   display: flex;
   gap: 40px;

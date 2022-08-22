@@ -2,11 +2,13 @@
   display: flex;
 
   width: 100%;
+  height: calc(100vh - 40px);
   gap: var(--paddingMedium);
 }
 
 .showcases {
   display: flex;
+  overflow-y: scroll;
   align-items: center;
   flex-direction: column;
 

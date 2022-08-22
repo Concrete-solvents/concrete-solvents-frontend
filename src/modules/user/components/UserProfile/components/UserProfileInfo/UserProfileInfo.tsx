@@ -7,7 +7,7 @@ const UserProfileInfo = () => {
   
   return (
     <section className={styles.container}>
-      <img src='https://www.advantour.com/russia/images/symbolics/russia-flag.jpg' alt='' className={styles.avatar}/>
+      <img src={user?.avatarUrl} alt='' className={styles.avatar}/>
       <p className={styles.username}>{user?.username || user?.login}</p>
       <div className={styles.level}>
         <p>Уровень: 3</p>
