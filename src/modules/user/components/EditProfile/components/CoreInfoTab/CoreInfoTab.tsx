@@ -5,11 +5,31 @@ import { ChildrenNever } from '@Common/interfaces/childrenNever.interface';
 // styles
 import styles from './coreInfoTab.module.css';
 import { DownloadAvatar } from '@User/components/EditProfile/components/DownloadAvatar/DownloadAvatar';
+import { useTypedSelector } from '@Common/hooks/useTypedSelector/useTypedSelector';
+import { useTypedDispatch } from '@Common/hooks/useTypedDispatch/useTypedDispatch';
+import { updateUserInfo } from '@Features/user/redux/userSlice/user.slice';
 
 const CoreInfoTab: FC<ChildrenNever> = () => {
-  const img = 'https://images.unsplash.com/photo-1586165368502-1bad197a6461?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1558&q=80';
-  const [userName, setUserName] = useState<string>('');
-  const [about, setAbout] = useState<string>('');
+  const user = useTypedSelector((state) => state.user.user);
+  const dispatch = useTypedDispatch();
+  const [img, setImg] = useState<any>(user?.avatarUrl || '');
+  const [userName, setUserName] = useState<any>(user?.username || '');
+  const [about, setAbout] = useState<any>(user?.description || '');
+
+  const updateUser = () => {
+    const payload = {
+      username: userName,
+      description: about,
+      avatarUrl: img
+    }
+    dispatch(updateUserInfo(payload))
+  }
+
+  const setInfoToStart = () => {
+    setUserName(user?.username);
+    setImg(user?.avatarUrl);
+    setAbout(user?.description);
+  }
 
   return (
     <section className={styles.container}>
@@ -49,8 +69,8 @@ const CoreInfoTab: FC<ChildrenNever> = () => {
         />
       </section>
       <section className={styles.buttonContainer}>
-        <button className={styles.buttonCancel}>Отмена</button>
-        <button className={styles.buttonAccept}>Сохранить</button>
+        <button onClick={setInfoToStart} className={styles.buttonCancel}>Отмена</button>
+        <button onClick={updateUser} className={styles.buttonAccept}>Сохранить</button>
       </section>
     </section>
   );
