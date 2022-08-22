@@ -1,14 +1,17 @@
-import { ChildrenNever } from '@Common/interfaces/childrenNever.interface';
+// Libraries
 import { FC } from 'react';
 
-//styles
+// Common
+import { ChildrenNever } from '@Common/interfaces/childrenNever.interface';
+
+// Styles
 import styles from './profileNavigation.module.css';
 
 interface Props extends ChildrenNever {
   active?: string;
 }
 
-const ProfileNavigation: FC<Props> = ({active}) => {
+const ProfileNavigation: FC<Props> = ({ active }) => {
   return (
     <section className={styles.main}>
       <section className={`${styles.container} ${active === '1' ? styles.activeTab : ''}`}>

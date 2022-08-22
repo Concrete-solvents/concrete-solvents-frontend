@@ -1,13 +1,17 @@
 // Libraries
 import React, { FC, useState } from 'react';
+
+// Common
 import { ChildrenNever } from '@Common/interfaces/childrenNever.interface';
 
-// styles
-import styles from './coreInfoTab.module.css';
+// User
 import { DownloadAvatar } from '@User/components/EditProfile/components/DownloadAvatar/DownloadAvatar';
 import { useTypedSelector } from '@Common/hooks/useTypedSelector/useTypedSelector';
 import { useTypedDispatch } from '@Common/hooks/useTypedDispatch/useTypedDispatch';
 import { updateUserInfo } from '@Features/user/redux/userSlice/user.slice';
+
+// Styles
+import styles from './coreInfoTab.module.css';
 
 const CoreInfoTab: FC<ChildrenNever> = () => {
   const user = useTypedSelector((state) => state.user.user);

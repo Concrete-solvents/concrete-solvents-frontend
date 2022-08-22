@@ -1,15 +1,18 @@
+// Libraries
 import { FC, useState } from 'react';
+
+// Common
 import { ChildrenNever } from '@Common/interfaces/childrenNever.interface';
 
-//components
+// Components
 import { CoreInfoTab } from '@User/components/EditProfile/components/CoreInfoTab/CoreInfoTab';
 import { ProfileNavigation } from '@User/components/EditProfile/components/ProfileNavigation/ProfileNavigation';
 
-//styles
+// Styles
 import styles from './userEdit.module.css';
 
 const UserEdit: FC<ChildrenNever> = () => {
-  const [tab, setTab] = useState<string>('1');
+  const [tab] = useState<string>('1');
   return (
     <section className={styles.container}>
       {

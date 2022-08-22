@@ -13,12 +13,12 @@ import styles from './topBar.module.css';
 
 const TopBar: FC<ChildrenNever> = () => {
   const user = useTypedSelector((state) => state.user.user);
-  const navigation = useNavigate()
+  const navigation = useNavigate();
 
   const goToEditProfile = () => {
-    navigation(`/users/${user?.id}/edit`)
-  }
-  
+    navigation(`/users/${user?.id}/edit`);
+  };
+
   return (
     <section className={styles.container}>
       <div>
