@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  align-items: center;
+
+  height: 200px;
+  padding-left: 120px;
+}
+
+.button {
+  width: 217px;
+  height: 32px;
+
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  background: #464d58;
+
+  font-size: 14px;
+}
+
+.button:hover {
+  cursor: pointer;
+  transition: 1s;
+
+  border: 1px solid black;
+  background: #2b3a47;
+
+  font-size: 14px;
+}

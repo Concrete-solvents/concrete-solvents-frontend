@@ -1,0 +1,63 @@
+.main {
+  margin: 20px 0 0 40px;
+}
+
+.activeTab {
+  height: 68px;
+
+  border-radius: 6px;
+  background: linear-gradient(to left, transparent, transparent 50%, #3d4450 50%, #3d4450);
+}
+
+.container {
+  position: relative;
+
+  display: flex;
+
+  overflow: hidden;
+  align-items: center;
+
+  width: 400px;
+  height: 34px;
+  margin-bottom: 6px;
+  padding-left: 4px;
+
+  cursor: pointer;
+
+  color: #fff;
+  border-radius: 3px;
+}
+
+.container:hover {
+  cursor: pointer;
+
+  border-radius: 3px;
+}
+
+.container::before {
+  position: absolute;
+  top: 0;
+  left: -100%;
+
+  width: 100%;
+  height: 100%;
+
+  content: '';
+  transition: left 0.4s;
+
+  border-radius: 3px;
+
+  background: linear-gradient(to left, transparent, transparent 50%, #3d4450 50%, #3d4450);
+}
+
+.container:hover::before {
+  left: 0;
+
+  border-radius: 3px;
+}
+
+.tab {
+  position: relative;
+
+  border-radius: 3px;
+}
