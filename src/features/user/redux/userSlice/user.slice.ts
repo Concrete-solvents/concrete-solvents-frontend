@@ -17,6 +17,7 @@ import { UpdateUserDto } from '@Features/user/interfaces/updateUser.dto';
 
 // Features
 import { api } from '@Features/axios/axios.init';
+import { UpdateUserInfoDto } from '@Features/user/interfaces/updateUserInfo.dto';
 
 interface InitialState {
   user: User | null;
@@ -88,6 +89,18 @@ const getMe = createAsyncThunk('user/getMe', async (payload: void, thunkApi) => 
     return thunkApi.rejectWithValue('Server error');
   }
 });
+
+const updateUserInfo = createAsyncThunk('user/updateUserInfo', async (payload: UpdateUserInfoDto, thunkApi) => {
+  try {
+    const result = await api.put('user/updateUserInfo', payload)
+    return result.data
+  } catch (error: any) {
+    if (error.response) {
+      return thunkApi.rejectWithValue(error.response.data.error);
+    }
+    return thunkApi.rejectWithValue('Server error');
+  }
+})
 
 const logout = createAsyncThunk('user/logout', async () => {
   await api.post('auth/logout');
@@ -179,6 +192,21 @@ const userSlice = createSlice({
       state.user = payload;
       window.location.replace('/');
     });
+    builder.addCase(updateUserInfo.pending, (state) => {
+      state.updateUserStatus = START_FETCH_STATUS;
+    });
+    builder.addCase(updateUserInfo.fulfilled, (state, {payload}: PayloadAction<User>) => {
+      state.updateUserStatus = BASE_FETCH_STATUS;
+      state.user = payload;
+    })
+    builder.addCase(updateUserInfo.rejected, (state, {payload}: PayloadAction<unknown>) => {
+      state.updateUserStatus.isLoading = false;
+      if (Object.values(ServerError).includes(payload as ServerError)) {
+        state.updateUserStatus.error = payload as ServerError;
+      } else {
+        state.updateUserStatus.error = ServerError.ServerError;
+      }
+    })
   },
 });
 
@@ -190,4 +218,4 @@ export const {
   clearGetMeErrors,
   toggleCollapseSidebar,
 } = userSlice.actions;
-export { registerUser, getMe, loginUser, updateUser, logout };
+export { registerUser, getMe, loginUser, updateUser, logout, updateUserInfo };

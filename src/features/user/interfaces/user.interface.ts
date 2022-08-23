@@ -5,6 +5,7 @@ interface User {
   email: string | null;
   isVerified: boolean;
   avatarUrl: string;
+  description: string | null;
 }
 
 export { User };
