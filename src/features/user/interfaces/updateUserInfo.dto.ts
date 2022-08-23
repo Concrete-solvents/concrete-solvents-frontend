@@ -1,7 +1,7 @@
 interface UpdateUserInfoDto {
   username?: string;
   avatarUrl?: string;
-  description?: string
+  description?: string;
 }
 
-export type {UpdateUserInfoDto}
+export type { UpdateUserInfoDto };

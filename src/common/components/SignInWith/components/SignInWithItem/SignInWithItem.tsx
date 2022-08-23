@@ -9,7 +9,7 @@ import { SignInWithCase } from '@Common/components/SignInWith/configs/signInWith
 import { ChildrenNever } from '@Common/interfaces/childrenNever.interface';
 
 // Styles
-import styles from './signInWithItem.module.css';;
+import styles from './signInWithItem.module.css';
 
 interface Props extends ChildrenNever {
   signInWithCase: SignInWithCase;

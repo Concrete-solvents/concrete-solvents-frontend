@@ -2,8 +2,7 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { faAt, faEye, faEyeSlash, faLock } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAt, faLock } from '@fortawesome/free-solid-svg-icons';
 
 // Common
 import { Button } from '@Common/components/Button/Button';

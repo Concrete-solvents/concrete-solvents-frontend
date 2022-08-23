@@ -5,13 +5,11 @@ import {
   faUsers,
   faBagShopping,
   faGears,
-  faArrowRightFromBracket,
   faBox,
   faCircleDollarToSlot,
   faEnvelope,
   faUserGroup,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Common
 import { Button } from '@Common/components/Button/Button';
