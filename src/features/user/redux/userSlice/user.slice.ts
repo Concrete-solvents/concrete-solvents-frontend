@@ -45,11 +45,11 @@ const registerUser = createAsyncThunk('user/registerUser', async (payload: Regis
   try {
     const result = await api.post('auth/registration', payload);
     return result.data.user;
-  } catch (error: any) {
+  }  catch (error: any) {
     if (error.response) {
-      return thunkApi.rejectWithValue(error.response.data.error);
+      return thunkApi.rejectWithValue(error.response.data);
     }
-    return thunkApi.rejectWithValue('Server error');
+    return thunkApi.rejectWithValue(ServerError.ServerError);
   }
 });
 
@@ -58,11 +58,10 @@ const loginUser = createAsyncThunk('user/loginUser', async (payload: LoginUserRe
     const result = await api.post('auth/login', payload);
     return result.data.user;
   } catch (error: any) {
-    console.log(error);
     if (error.response) {
-      return thunkApi.rejectWithValue(error.response.data.error);
+      return thunkApi.rejectWithValue(error.response.data);
     }
-    return thunkApi.rejectWithValue('Server error');
+    return thunkApi.rejectWithValue(ServerError.ServerError);
   }
 });
 
@@ -92,15 +91,15 @@ const getMe = createAsyncThunk('user/getMe', async (payload: void, thunkApi) => 
 
 const updateUserInfo = createAsyncThunk('user/updateUserInfo', async (payload: UpdateUserInfoDto, thunkApi) => {
   try {
-    const result = await api.put('user/updateUserInfo', payload)
-    return result.data
+    const result = await api.put('user/updateUserInfo', payload);
+    return result.data;
   } catch (error: any) {
     if (error.response) {
       return thunkApi.rejectWithValue(error.response.data.error);
     }
     return thunkApi.rejectWithValue('Server error');
   }
-})
+});
 
 const logout = createAsyncThunk('user/logout', async () => {
   await api.post('auth/logout');
@@ -133,12 +132,7 @@ const userSlice = createSlice({
       state.registrationStatus = START_FETCH_STATUS;
     });
     builder.addCase(registerUser.rejected, (state, { payload }: PayloadAction<unknown>) => {
-      state.registrationStatus.isLoading = false;
-      if (Object.values(ServerError).includes(payload as ServerError)) {
-        state.registrationStatus.error = payload as ServerError;
-      } else {
-        state.registrationStatus.error = ServerError.ServerError;
-      }
+      state.registrationStatus.error = payload as ServerError;
     });
     builder.addCase(registerUser.fulfilled, (state, { payload }: PayloadAction<User>) => {
       state.registrationStatus = BASE_FETCH_STATUS;
@@ -165,11 +159,7 @@ const userSlice = createSlice({
     });
     builder.addCase(loginUser.rejected, (state, { payload }: PayloadAction<unknown>) => {
       state.loginStatus.isLoading = false;
-      if (Object.values(ServerError).includes(payload as ServerError)) {
-        state.loginStatus.error = payload as ServerError;
-      } else {
-        state.loginStatus.error = ServerError.ServerError;
-      }
+      state.loginStatus.error = payload as ServerError;
     });
     builder.addCase(loginUser.fulfilled, (state, { payload }: PayloadAction<User>) => {
       state.loginStatus = BASE_FETCH_STATUS;
@@ -195,18 +185,18 @@ const userSlice = createSlice({
     builder.addCase(updateUserInfo.pending, (state) => {
       state.updateUserStatus = START_FETCH_STATUS;
     });
-    builder.addCase(updateUserInfo.fulfilled, (state, {payload}: PayloadAction<User>) => {
+    builder.addCase(updateUserInfo.fulfilled, (state, { payload }: PayloadAction<User>) => {
       state.updateUserStatus = BASE_FETCH_STATUS;
       state.user = payload;
-    })
-    builder.addCase(updateUserInfo.rejected, (state, {payload}: PayloadAction<unknown>) => {
+    });
+    builder.addCase(updateUserInfo.rejected, (state, { payload }: PayloadAction<unknown>) => {
       state.updateUserStatus.isLoading = false;
       if (Object.values(ServerError).includes(payload as ServerError)) {
         state.updateUserStatus.error = payload as ServerError;
       } else {
         state.updateUserStatus.error = ServerError.ServerError;
       }
-    })
+    });
   },
 });
 

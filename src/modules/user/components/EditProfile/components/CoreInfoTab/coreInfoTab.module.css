@@ -1,20 +1,27 @@
 .container {
   display: flex;
   flex-direction: column;
+
+  width: 100%;
+  padding: 30px;
+
+  color: #e4e7e8;
+  border-radius: 10px;
+  gap: 40px;
 }
 
 .avatar {
   display: flex;
   align-items: flex-end;
-
-  margin-bottom: 20px;
 }
 
 .about {
   display: flex;
   flex-direction: column;
+}
 
-  margin-bottom: 20px;
+h2 {
+  font-weight: normal;
 }
 
 .containerImg {
@@ -25,19 +32,19 @@
   display: flex;
   justify-content: flex-start;
 
-  margin: 0 5px 10px 0;
+  margin-bottom: 20px;
   padding-bottom: 10px;
 
   letter-spacing: 1px;
 
-  border-bottom: 2px solid rgb(228 228 228 / 0.1);
+  border-bottom: 2px solid #989898;
 
   font-size: 24px;
 }
 
 .buttonContainer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .buttonCancel {
@@ -50,12 +57,6 @@
   background: #3d4450;
 }
 
-.buttonCancel:hover {
-  cursor: pointer;
-
-  border: 1px solid white;
-}
-
 .buttonAccept {
   width: 200px;
   height: 34px;
@@ -63,62 +64,46 @@
 
   color: #fff;
   border: none;
-  border-radius: 3px;
-  background: linear-gradient(to right, #47bfff 0%, #1a44c2 60%);
-  background-size: 330% 100%;
+  border-radius: 6px;
+  background: #2533fd;
 }
 
-.buttonAccept:hover {
-  cursor: pointer;
-  transition: 1s;
-
-  border: 1px solid white;
-}
-
-.name {
+.inputContainer {
   display: flex;
   flex-direction: column;
-
-  margin-bottom: 20px;
+  gap: 10px;
 }
 
 .inputName {
-  height: 42px;
-  padding-left: 4px;
-
-  color: #909090;
-
-  border: none;
-  background-color: rgb(0 0 0 / 0.25);
-  box-shadow: inset 1px 1px 0 #000a;
-
-  font-size: 14px;
+  color: #e4e7e8;
+  border: 2px solid rgb(82 82 86 / 0.53);
+  border-radius: 6px;
+  background-color: transparent;
 }
 
 .inputAbout {
-  height: 62px;
-  padding: 6px 0 0 6px;
+  min-height: 150px;
+  padding: 10px;
 
   resize: none;
 
-  color: #909090;
+  color: #e4e7e8;
 
-  border: none;
-  background-color: rgb(0 0 0 / 0.25);
-  box-shadow: inset 1px 1px 0 #000a;
+  border: 2px solid rgb(82 82 86 / 0.48);
+  border-radius: 6px;
+  background-color: transparent;
 
-  font-size: 14px;
+  font-family: inherit;
+  font-size: 1rem;
 }
 
 .imgDescription {
-  margin-top: 10px;
-
   font-size: 9px;
 }
 
-.img184 {
-  width: 184px;
-  height: 184px;
+.img128 {
+  width: 128px;
+  height: 128px;
 }
 
 .img64 {
@@ -129,4 +114,10 @@
 .img32 {
   width: 32px;
   height: 32px;
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

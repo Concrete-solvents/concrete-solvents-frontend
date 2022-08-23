@@ -1,4 +1,5 @@
 // Libraries
+import { Button } from '@Common/components/Button/Button';
 import React, { FC, useState } from 'react';
 
 // Common
@@ -12,69 +13,74 @@ import { updateUserInfo } from '@Features/user/redux/userSlice/user.slice';
 
 // Styles
 import styles from './coreInfoTab.module.css';
+import { Input } from '@Common/components/Input/Input';
 
 const CoreInfoTab: FC<ChildrenNever> = () => {
   const user = useTypedSelector((state) => state.user.user);
   const dispatch = useTypedDispatch();
-  const [img, setImg] = useState<any>(user?.avatarUrl || '');
-  const [userName, setUserName] = useState<any>(user?.username || '');
-  const [about, setAbout] = useState<any>(user?.description || '');
+  const [img] = useState(user?.avatarUrl || '');
+  const [userName, setUserName] = useState(user?.login || '');
+  const [about, setAbout] = useState(user?.description || '');
 
   const updateUser = () => {
     const payload = {
       username: userName,
       description: about,
-      avatarUrl: img
-    }
-    dispatch(updateUserInfo(payload))
-  }
-
-  const setInfoToStart = () => {
-    setUserName(user?.username);
-    setImg(user?.avatarUrl);
-    setAbout(user?.description);
-  }
+      avatarUrl: img,
+    };
+    dispatch(updateUserInfo(payload));
+  };
 
   return (
     <section className={styles.container}>
-      <div className={styles.avatarTitle}>Аватар</div>
-      <section className={styles.avatar}>
-        <div className={styles.containerImg}>
-          <img className={styles.img184} src={img} alt='' />
-          <p className={styles.imgDescription}>184px</p>
-        </div>
-        <div className={styles.containerImg}>
-          <img className={styles.img64} src={img} alt='' />
-          <p className={styles.imgDescription}>64px</p>
-        </div>
-        <div className={styles.containerImg}>
-          <img className={styles.img32} src={img} alt='' />
-          <p className={styles.imgDescription}>32px</p>
-        </div>
-        <DownloadAvatar />
+      <section className={styles.formSection}>
+        <h2 className={styles.avatarTitle}>Основное</h2>
+        <section className={styles.inputContainer}>
+          <label>Имя профиля</label>
+          <Input
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+            type="text"
+            className={styles.inputName}
+          />
+        </section>  
       </section>
-      <div className={styles.avatarTitle}>Основное</div>
-      <section className={styles.name}>
-        <label style={{ marginBottom: '4px' }}>Имя профиля</label>
-        <input
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)}
-          className={styles.inputName}
-          type='text'
-        />
+      <section className={styles.formSection}>
+        Аватар
+        <section className={styles.avatar}>
+          <div className={styles.containerImg}>
+            <img className={styles.img128} src={img} alt="" />
+            <p className={styles.imgDescription}>128px</p>
+          </div>
+          <div className={styles.containerImg}>
+            <img className={styles.img64} src={img} alt="" />
+            <p className={styles.imgDescription}>64px</p>
+          </div>
+          <div className={styles.containerImg}>
+            <img className={styles.img32} src={img} alt="" />
+            <p className={styles.imgDescription}>32px</p>
+          </div>
+          <DownloadAvatar />
+        </section>
       </section>
-      <div className={styles.avatarTitle}>О себе</div>
-      <section className={styles.about}>
-        <textarea
-          value={about}
-          className={styles.inputAbout}
-          placeholder='Информация отсутствует.'
-          onChange={(e) => setAbout(e.target.value)}
-        />
+      <section className={styles.formSection}>
+        О себе
+        <section className={styles.about}>
+          <textarea
+            value={about}
+            className={styles.inputAbout}
+            placeholder="Информация отсутствует."
+            onChange={(e) => setAbout(e.target.value)}
+          />
+        </section>
       </section>
       <section className={styles.buttonContainer}>
-        <button onClick={setInfoToStart} className={styles.buttonCancel}>Отмена</button>
-        <button onClick={updateUser} className={styles.buttonAccept}>Сохранить</button>
+        <Button className={styles.buttonCancel}>
+          Отмена
+        </Button>
+        <Button onClick={updateUser} className={styles.buttonAccept}>
+          Сохранить
+        </Button>
       </section>
     </section>
   );

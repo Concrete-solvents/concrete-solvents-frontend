@@ -1,12 +1,13 @@
 .main {
-  margin: 20px 0 0 40px;
+  display: flex;
+  gap: 10px;
+
+  margin-left: 30px;
 }
 
 .activeTab {
-  height: 68px;
-
   border-radius: 6px;
-  background: linear-gradient(to left, transparent, transparent 50%, #3d4450 50%, #3d4450);
+  background: linear-gradient(to left, #3d4450 50%, #3d4450);
 }
 
 .container {
@@ -17,10 +18,7 @@
   overflow: hidden;
   align-items: center;
 
-  width: 400px;
-  height: 34px;
-  margin-bottom: 6px;
-  padding-left: 4px;
+  height: 30px;
 
   cursor: pointer;
 
@@ -36,22 +34,22 @@
 
 .container::before {
   position: absolute;
-  top: 0;
-  left: -100%;
+  top: 100%;
+  left: 0;
 
   width: 100%;
   height: 100%;
 
   content: '';
-  transition: left 0.4s;
+  transition: top 0.4s;
 
   border-radius: 3px;
 
-  background: linear-gradient(to left, transparent, transparent 50%, #3d4450 50%, #3d4450);
+  background: linear-gradient(to left, #3d4450 50%, #3d4450);
 }
 
 .container:hover::before {
-  left: 0;
+  top: 0;
 
   border-radius: 3px;
 }
@@ -59,5 +57,7 @@
 .tab {
   position: relative;
 
-  border-radius: 3px;
+  padding: 5px;
+
+  border-bottom: 5px solid #3d4450;
 }

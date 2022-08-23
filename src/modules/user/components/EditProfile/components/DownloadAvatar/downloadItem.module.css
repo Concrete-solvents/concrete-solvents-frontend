@@ -1,9 +1,12 @@
 .container {
   display: flex;
-  align-items: center;
+  align-self: flex-start;
+  flex-direction: column;
 
-  height: 200px;
+  max-width: 330px;
+
   padding-left: 120px;
+  gap: 10px;
 }
 
 .inputfile {
@@ -12,8 +15,8 @@
 
   overflow: hidden;
 
-  width: 0.1px;
-  height: 0.1px;
+  width: 0;
+  height: 0;
 
   opacity: 0;
 }
@@ -36,10 +39,10 @@
 
 .button:hover {
   cursor: pointer;
-  transition: 1s;
+}
 
-  border: 1px solid black;
-  background: #2b3a47;
+.downloadHint {
+  color: rgb(245 245 245 / 0.45);
 
-  font-size: 14px;
+  font-size: 11px;
 }

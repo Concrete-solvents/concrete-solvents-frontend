@@ -12,13 +12,12 @@ import { ProfileNavigation } from '@User/components/EditProfile/components/Profi
 import styles from './userEdit.module.css';
 
 const UserEdit: FC<ChildrenNever> = () => {
-  const [tab] = useState<string>('1');
+  const [tab, setTab] = useState(1);
+  
   return (
     <section className={styles.container}>
-      {
-        tab === '1' && <CoreInfoTab />
-      }
-      <ProfileNavigation active={tab} />
+      <ProfileNavigation active={tab} changeTab={setTab} />
+      {tab === 1 && <CoreInfoTab />}
     </section>
   );
 };
