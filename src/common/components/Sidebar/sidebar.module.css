@@ -1,11 +1,11 @@
 .sidebar {
-  position: relative;
+  position: fixed;
 
   display: flex;
   align-items: center;
   flex-direction: column;
 
-  min-width: 40px;
+  width: 60px;
   height: calc(100vh - 40px);
   padding: var(--paddingMedium) 10px;
   gap: var(--paddingBig);

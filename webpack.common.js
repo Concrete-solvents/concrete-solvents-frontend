@@ -16,8 +16,24 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        test: /\.css$/,
+        use: [
+          "style-loader",
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName:'[name]__[local]--[hash:base64:5]',
+              },
+            },
+          },
+        ],
+        include: /\.module\.css$/,
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+        exclude: /\.module\.css$/,
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
@@ -39,5 +55,4 @@ module.exports = {
     }),
     new ForkTsCheckerWebpackPlugin(),
   ],
-  
 };

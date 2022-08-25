@@ -1,0 +1,37 @@
+.textarea {
+  min-height: 150px;
+  padding: 10px;
+
+  resize: none;
+
+  color: #fff;
+  border: 2px solid rgb(93 93 92 / 0.4);
+  border-radius: 3px;
+  background: transparent;
+
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.errorMessage {
+  color: red;
+
+  font-size: 14px;
+}
+
+.errorBorder {
+  border: 2px solid red;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.inputError {
+  margin-bottom: 5px;
+
+  color: red;
+}

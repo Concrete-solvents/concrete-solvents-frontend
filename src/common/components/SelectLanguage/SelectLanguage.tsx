@@ -1,13 +1,14 @@
 // Libraries
+import { FC } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
+
+// Common
 import { Button } from '@Common/components/Button/Button';
 import { Language } from '@Common/enums/language.enum';
 import { usePopUp } from '@Common/hooks/usePopUp/usePopUp';
 import { ChildrenNever } from '@Common/interfaces/childrenNever.interface';
-import { FC } from 'react';
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import { useTranslation } from 'react-i18next';
 
 // Styles
 import styles from './selectLanguage.module.css';

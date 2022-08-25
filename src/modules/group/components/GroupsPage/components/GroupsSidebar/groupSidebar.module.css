@@ -1,0 +1,17 @@
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input {
+  border: 2px solid rgb(93 93 92 / 0.4);
+  border-radius: 3px;
+  background: transparent;
+}

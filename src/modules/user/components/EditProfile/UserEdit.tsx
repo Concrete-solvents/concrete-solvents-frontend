@@ -4,7 +4,7 @@ import { FC, useState } from 'react';
 // Common
 import { ChildrenNever } from '@Common/interfaces/childrenNever.interface';
 
-// Components
+// User
 import { CoreInfoTab } from '@User/components/EditProfile/components/CoreInfoTab/CoreInfoTab';
 import { ProfileNavigation } from '@User/components/EditProfile/components/ProfileNavigation/ProfileNavigation';
 

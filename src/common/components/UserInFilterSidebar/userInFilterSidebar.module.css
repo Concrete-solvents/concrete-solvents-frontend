@@ -1,0 +1,19 @@
+.avatar {
+  width: 128px;
+  height: 128px;
+
+  border-radius: 50%;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.level {
+  color: #b0b0b0;
+
+  font-size: 14px;
+}

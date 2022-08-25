@@ -1,5 +1,7 @@
 // Libraries
-import { GroupsPage } from '@Pages/groups/GroupsPage';
+import { GroupPage } from '@Group/components/GroupPage/GroupPage';
+import { CreateGroupPage } from '@Pages/groups/create/CreateGroupPage';
+import { GroupsPage } from '@Group/components/GroupsPage/GroupsPage';
 import { Main } from '@Pages/main/Main';
 import { FriendsPage } from '@Pages/users/friendsPage/FriendsPage';
 import { UserProfilePage } from '@Pages/users/userProfilePage/UserProfilePage';
@@ -48,6 +50,14 @@ const App = () => (
             }
           />
           <Route
+            path="/groups/create"
+            element={
+              <WithAuth>
+                <CreateGroupPage />
+              </WithAuth>
+            }
+          />
+          <Route
             path="/users/:id/friends"
             element={
               <WithAuth>
@@ -68,6 +78,22 @@ const App = () => (
             element={
               <WithAuth>
                 <UserEditPage />
+              </WithAuth>
+            }
+          />
+          <Route
+            path="/users/:userId/groups"
+            element={
+              <WithAuth>
+                <GroupsPage />
+              </WithAuth>
+            }
+          />
+          <Route
+            path="/groups/:groupId"
+            element={
+              <WithAuth>
+                <GroupPage />
               </WithAuth>
             }
           />

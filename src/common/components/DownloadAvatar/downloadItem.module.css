@@ -3,13 +3,12 @@
   align-self: flex-start;
   flex-direction: column;
 
-  max-width: 330px;
+  max-width: 200px;
 
-  padding-left: 120px;
   gap: 10px;
 }
 
-.inputfile {
+.inputFile {
   position: absolute;
   z-index: -1;
 
@@ -26,7 +25,7 @@
   align-items: center;
   justify-content: center;
 
-  width: 217px;
+  width: 200px;
   height: 32px;
 
   color: #fff;
@@ -34,7 +33,7 @@
   border-radius: 3px;
   background: #464d58;
 
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .button:hover {
