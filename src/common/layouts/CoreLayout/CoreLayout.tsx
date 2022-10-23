@@ -11,9 +11,12 @@ import styles from './coreLayout.module.css';
 interface Props {
   children: ReactNode;
   backgroundImage?: string;
+  css?: {
+    display?: string;
+  };
 }
 
-const CoreLayout = ({ children, backgroundImage }: Props) => (
+const CoreLayout = ({ children, backgroundImage, css }: Props) => (
   <section style={{
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -22,7 +25,7 @@ const CoreLayout = ({ children, backgroundImage }: Props) => (
     <TopBar />
     <section className={styles.sidebarAndContent}>
       <Sidebar />
-      <section className={styles.content}>{children}</section>
+      <section style={css} className={styles.content}>{children}</section>
     </section>
   </section>
 );
