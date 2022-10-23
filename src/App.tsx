@@ -19,6 +19,7 @@ import { Registration } from '@Pages/auth/registration/Registration';
 import { SocialRegistration } from '@Pages/auth/social/SocialRegistration';
 import { Welcome } from '@Pages/auth/welcome/Welcome';
 import { UserEditPage } from '@Pages/users/userEdit/UserEditPage';
+import { ChatPage } from '@Pages/chat/ChatPage';
 
 const App = () => (
   <Provider store={store}>
@@ -39,6 +40,14 @@ const App = () => (
             <Route path="registration" element={<Registration />} />
             <Route path="social" element={<SocialRegistration />} />
           </Route>
+          <Route
+            path="/chat"
+            element={
+              <WithAuth>
+                <ChatPage />
+              </WithAuth>
+            }
+          />
           <Route
             path="/groups"
             element={

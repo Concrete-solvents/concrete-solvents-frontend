@@ -24,6 +24,9 @@
       "@User/*": [
         "./src/modules/user/*"
       ],
+      "@Chat/*": [
+        "./src/modules/chat/*"
+      ],
       "@Achievement/*": [
         "./src/modules/achievement/*"
       ],

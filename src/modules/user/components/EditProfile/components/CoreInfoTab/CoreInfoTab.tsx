@@ -16,17 +16,16 @@ import styles from './coreInfoTab.module.css';
 import { Input } from '@Common/components/Input/Input';
 
 const CoreInfoTab: FC<ChildrenNever> = () => {
-  const user = useTypedSelector((state) => state.user.user);
+  const { user } = useTypedSelector((state) => state.user);
   const dispatch = useTypedDispatch();
-  const [img] = useState(user?.avatarUrl || '');
-  const [userName, setUserName] = useState(user?.login || '');
+  const [userName, setUserName] = useState(user?.username || '');
   const [about, setAbout] = useState(user?.description || '');
 
   const updateUser = () => {
     const payload = {
       username: userName,
       description: about,
-      avatarUrl: img,
+      avatarUrl: user?.avatarUrl,
     };
     dispatch(updateUserInfo(payload));
   };
@@ -49,15 +48,15 @@ const CoreInfoTab: FC<ChildrenNever> = () => {
         Аватар
         <section className={styles.avatar}>
           <div className={styles.containerImg}>
-            <img className={styles.img128} src={img} alt="" />
+            <img className={styles.img128} src={user?.avatarUrl} alt="" />
             <p className={styles.imgDescription}>128px</p>
           </div>
           <div className={styles.containerImg}>
-            <img className={styles.img64} src={img} alt="" />
+            <img className={styles.img64} src={user?.avatarUrl} alt="" />
             <p className={styles.imgDescription}>64px</p>
           </div>
           <div className={styles.containerImg}>
-            <img className={styles.img32} src={img} alt="" />
+            <img className={styles.img32} src={user?.avatarUrl} alt="" />
             <p className={styles.imgDescription}>32px</p>
           </div>
           <DownloadAvatar />

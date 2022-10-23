@@ -101,6 +101,18 @@ const updateUserInfo = createAsyncThunk('user/updateUserInfo', async (payload: U
   }
 });
 
+const downloadImgItem = createAsyncThunk('user/downloadImg', async (payload: any, thunkApi) => {
+  try {
+    const downloadImg = await api.post('fileUpload/upload', payload);
+    return `${process.env.REACT_APP_API_URL}/fileUpload/${downloadImg.data.data.filename}`;
+  } catch (error: any) {
+    if (error.response) {
+      return thunkApi.rejectWithValue(error.response.data.error);
+    }
+    return thunkApi.rejectWithValue('Server error');
+  }
+});
+
 const logout = createAsyncThunk('user/logout', async () => {
   await api.post('auth/logout');
   window.location.replace('/auth/welcome');
@@ -180,7 +192,6 @@ const userSlice = createSlice({
     builder.addCase(updateUser.fulfilled, (state, { payload }: PayloadAction<User>) => {
       state.updateUserStatus = BASE_FETCH_STATUS;
       state.user = payload;
-      window.location.replace('/');
     });
     builder.addCase(updateUserInfo.pending, (state) => {
       state.updateUserStatus = START_FETCH_STATUS;
@@ -197,6 +208,21 @@ const userSlice = createSlice({
         state.updateUserStatus.error = ServerError.ServerError;
       }
     });
+    builder.addCase(downloadImgItem.pending, (state) => {
+      state.updateUserStatus = START_FETCH_STATUS;
+    });
+    builder.addCase(downloadImgItem.rejected, (state, { payload }: PayloadAction<unknown>) => {
+      state.updateUserStatus.isLoading = false;
+      if (Object.values(ServerError).includes(payload as ServerError)) {
+        state.updateUserStatus.error = payload as ServerError;
+      } else {
+        state.updateUserStatus.error = ServerError.ServerError;
+      }
+    });
+    builder.addCase(downloadImgItem.fulfilled, (state, { payload }: PayloadAction<string>) => {
+      state.updateUserStatus = BASE_FETCH_STATUS;
+      state.user!.avatarUrl = payload;
+    });
   },
 });
 
@@ -208,4 +234,4 @@ export const {
   clearGetMeErrors,
   toggleCollapseSidebar,
 } = userSlice.actions;
-export { registerUser, getMe, loginUser, updateUser, logout, updateUserInfo };
+export { registerUser, getMe, loginUser, updateUser, logout, updateUserInfo, downloadImgItem };
