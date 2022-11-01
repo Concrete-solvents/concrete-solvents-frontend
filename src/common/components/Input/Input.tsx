@@ -8,9 +8,11 @@ import { FC, ForwardedRef, InputHTMLAttributes, memo } from 'react';
 import { Button } from '@Common/components/Button/Button';
 import { usePasswordInput } from '@Common/hooks/usePasswordInput/usePasswordInput';
 
+// Pages
+import authStyles from '@Pages/auth/auth.module.css';
+
 // Styles
 import styles from './input.module.css';
-import authStyles from '@Pages/auth/auth.module.css';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   error?: string;

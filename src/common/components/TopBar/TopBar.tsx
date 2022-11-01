@@ -13,6 +13,7 @@ import styles from './topBar.module.css';
 
 const TopBar: FC<ChildrenNever> = () => {
   const user = useTypedSelector((state) => state.user.user);
+
   const navigation = useNavigate();
 
   const goToEditProfile = () => {
@@ -29,7 +30,7 @@ const TopBar: FC<ChildrenNever> = () => {
           777 <FontAwesomeIcon icon={faYenSign} />
         </p>
         <p className={styles.name} onClick={goToEditProfile}>
-          {user?.username || user?.login}
+          {user?.login}
           <span className={styles.selectUserIcon}>
             <FontAwesomeIcon icon={faAngleDown} />
           </span>

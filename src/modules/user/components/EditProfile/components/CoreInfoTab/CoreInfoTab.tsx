@@ -1,26 +1,38 @@
 // Libraries
-import { Button } from '@Common/components/Button/Button';
 import React, { FC, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 // Common
-import { ChildrenNever } from '@Common/interfaces/childrenNever.interface';
-
-// User
-import { DownloadAvatar } from '@User/components/EditProfile/components/DownloadAvatar/DownloadAvatar';
-import { useTypedSelector } from '@Common/hooks/useTypedSelector/useTypedSelector';
+import { Avatar } from '@Common/components/Avatar/Avatar';
+import { Button } from '@Common/components/Button/Button';
+import { DownloadAvatar } from '@Common/components/DownloadAvatar/DownloadAvatar';
+import { Input } from '@Common/components/Input/Input';
+import { Loading } from '@Common/components/Loading/Loading';
+import { AvatarSize } from '@Common/enums/avatarSize.enum';
 import { useTypedDispatch } from '@Common/hooks/useTypedDispatch/useTypedDispatch';
+import { ChildrenNever } from '@Common/interfaces/childrenNever.interface';
+import { useTypedSelector } from '@Common/hooks/useTypedSelector/useTypedSelector';
+
+// Features
 import { updateUserInfo } from '@Features/user/redux/userSlice/user.slice';
 
 // Styles
 import styles from './coreInfoTab.module.css';
-import { Input } from '@Common/components/Input/Input';
 
 const CoreInfoTab: FC<ChildrenNever> = () => {
   const user = useTypedSelector((state) => state.user.user);
-  const dispatch = useTypedDispatch();
-  const [img] = useState(user?.avatarUrl || '');
+
+  const [img, setImage] = useState(user?.avatarUrl || '');
   const [userName, setUserName] = useState(user?.login || '');
   const [about, setAbout] = useState(user?.description || '');
+
+  const dispatch = useTypedDispatch();
+  const { t: commonTranslate } = useTranslation('common');
+  const { t: translate } = useTranslation('user');
+
+  if (!user) {
+    return <Loading />;
+  }
 
   const updateUser = () => {
     const payload = {
@@ -34,52 +46,46 @@ const CoreInfoTab: FC<ChildrenNever> = () => {
   return (
     <section className={styles.container}>
       <section className={styles.formSection}>
-        <h2 className={styles.avatarTitle}>Основное</h2>
+        <h2 className={styles.avatarTitle}>{translate('General')}</h2>
         <section className={styles.inputContainer}>
-          <label>Имя профиля</label>
+          <label>{commonTranslate('Username')}</label>
           <Input
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
             type="text"
             className={styles.inputName}
           />
-        </section>  
-      </section>
-      <section className={styles.formSection}>
-        Аватар
-        <section className={styles.avatar}>
-          <div className={styles.containerImg}>
-            <img className={styles.img128} src={img} alt="" />
-            <p className={styles.imgDescription}>128px</p>
-          </div>
-          <div className={styles.containerImg}>
-            <img className={styles.img64} src={img} alt="" />
-            <p className={styles.imgDescription}>64px</p>
-          </div>
-          <div className={styles.containerImg}>
-            <img className={styles.img32} src={img} alt="" />
-            <p className={styles.imgDescription}>32px</p>
-          </div>
-          <DownloadAvatar />
         </section>
       </section>
       <section className={styles.formSection}>
-        О себе
+        {commonTranslate('Avatar')}
+        <section className={styles.avatar}>
+          {[AvatarSize.l, AvatarSize.m, AvatarSize.xs].map((size) => (
+            <div className={styles.containerImg}>
+              <Avatar size={size} avatarUrl={img} />
+              <p className={styles.imgDescription}>
+                {size} x {size}
+              </p>
+            </div>
+          ))}
+          <DownloadAvatar setImage={setImage} title={translate('Upload your avatar')} />
+        </section>
+      </section>
+      <section className={styles.formSection}>
+        {translate('About you')}
         <section className={styles.about}>
           <textarea
             value={about}
             className={styles.inputAbout}
-            placeholder="Информация отсутствует."
+            placeholder={translate('How are you doing?')}
             onChange={(e) => setAbout(e.target.value)}
           />
         </section>
       </section>
       <section className={styles.buttonContainer}>
-        <Button className={styles.buttonCancel}>
-          Отмена
-        </Button>
+        <Button className={styles.buttonCancel}>{commonTranslate('Cancel')}</Button>
         <Button onClick={updateUser} className={styles.buttonAccept}>
-          Сохранить
+          {commonTranslate('Save')}
         </Button>
       </section>
     </section>

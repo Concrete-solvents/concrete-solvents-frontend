@@ -2,15 +2,16 @@
   display: flex;
 
   height: 100%;
+  padding-top: 40px;
 }
 
 .content {
   width: 100%;
-  padding: var(--paddingMedium);
+  padding: var(--paddingMedium) var(--paddingMedium) var(--paddingMedium) calc(60px + var(--paddingMedium));
 }
 
 .container {
-  overflow: hidden;
+  overflow: auto;
 
   height: 100vh;
 

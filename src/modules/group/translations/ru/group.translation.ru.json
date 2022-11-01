@@ -1,0 +1,17 @@
+{
+  "Group description": "Описание группы",
+  "Group name": "Имя группы",
+  "Give a few words about your group": "Расскажите несколько слов о вашей группе",
+  "Think of a name for your group": "Придумайте название для вашей группы",
+  "Here will be the name of the group": "Здесь будет название группы",
+  "Here will be a description of the group": "Здесь будет описание группы",
+  "Type of group": "Тип группы",
+  "Open": "Открытая",
+  "Closed": "Закрытая",
+  "Creating a group": "Создание группы",
+  "Upload your group avatar": "Загрузите аватар вашей группы",
+  "The length of the group name should not be less than": "Длина имени группы не должна быть меньше",
+  "The length of the group name should not be more than": "Длина имени группы не должна быть больше",
+  "The length of the group description should not be less than": "Длина описания группы не должна быть меньше",
+  "The length of the group description should not be more than": "Длина описания группы не должна быть больше"
+}
