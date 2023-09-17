@@ -62,7 +62,7 @@
   gap: 40px;
 }
 
-@media screen and (max-width: 1281px) {
+@media screen and (width <= 1281px) {
   .images {
     grid-template-columns: repeat(5, 1fr);
   }
