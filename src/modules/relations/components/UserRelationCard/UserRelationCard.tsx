@@ -18,7 +18,10 @@ interface Props extends ChildrenNever {
 const UserRelationCard: FC<Props> = ({ user }: Props) => (
   <Link to={`users/${user.id}`} className={styles.container}>
     <img
-      src={user.avatarUrl || 'https://static.vecteezy.com/system/resources/thumbnails/003/337/584/small/default-avatar-photo-placeholder-profile-icon-vector.jpg'}
+      src={
+        user.avatarUrl ||
+        'https://static.vecteezy.com/system/resources/thumbnails/003/337/584/small/default-avatar-photo-placeholder-profile-icon-vector.jpg'
+      }
       alt="avatar"
       className={styles.avatar}
     />

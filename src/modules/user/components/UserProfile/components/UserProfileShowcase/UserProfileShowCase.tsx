@@ -8,6 +8,8 @@ interface Props {
   children: ReactNode;
 }
 
-const UserProfileShowcase: FC<Props> = ({ children }: Props) => <section className={styles.container}>{children}</section>;
+const UserProfileShowcase: FC<Props> = ({ children }: Props) => (
+  <section className={styles.container}>{children}</section>
+);
 
 export { UserProfileShowcase };

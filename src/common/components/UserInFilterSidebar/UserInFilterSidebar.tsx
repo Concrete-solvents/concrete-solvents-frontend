@@ -7,23 +7,27 @@ import styles from './userInFilterSidebar.module.css';
 
 const UserInFilterSidebar = () => {
   const user = useTypedSelector((state) => state.getUserInFilterSidebar.user);
-  
+
   const { userId } = useParams();
-  
+
   const dispatch = useTypedDispatch();
-  
+
   useEffect(() => {
     dispatch(getUserInFilterSidebar({ userId }));
   }, []);
-  
+
   return (
-    <p>{!user ? userId : (
-      <div className={styles.user}>
-        <p>{user.username}</p>
-        <img src={user.avatarUrl} alt='avatar' className={styles.avatar}/>
-        <p className={styles.level}>Уровень: {user.level}</p>
-      </div>
-    )}</p>
+    <p>
+      {!user ? (
+        userId
+      ) : (
+        <div className={styles.user}>
+          <p>{user.username}</p>
+          <img src={user.avatarUrl} alt="avatar" className={styles.avatar} />
+          <p className={styles.level}>Уровень: {user.level}</p>
+        </div>
+      )}
+    </p>
   );
 };
 

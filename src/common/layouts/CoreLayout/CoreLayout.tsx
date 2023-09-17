@@ -14,11 +14,14 @@ interface Props {
 }
 
 const CoreLayout = ({ children, backgroundImage }: Props) => (
-  <section style={{
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    backgroundImage: backgroundImage ? `url(${backgroundImage})` : '',
-  }} className={styles.container}>
+  <section
+    style={{
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundImage: backgroundImage ? `url(${backgroundImage})` : '',
+    }}
+    className={styles.container}
+  >
     <TopBar />
     <section className={styles.sidebarAndContent}>
       <Sidebar />

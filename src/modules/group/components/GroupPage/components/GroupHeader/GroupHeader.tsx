@@ -11,7 +11,7 @@ const GroupHeader: FC<Props> = ({ group }) => {
   return (
     <article className={styles.container}>
       <div className={styles.row}>
-        <img src={group.avatarUrl} alt='Group avatar'/>
+        <img src={group.avatarUrl} alt="Group avatar" />
         <div>
           <p>{group.name}</p>
           <p>{group.type}</p>

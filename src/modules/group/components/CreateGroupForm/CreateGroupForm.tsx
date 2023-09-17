@@ -18,9 +18,19 @@ import styles from './creategroupForm.modules.css';
 
 const CreateGroupForm: FC<ChildrenNever> = () => {
   const createGroupState = useTypedSelector((state) => state.createGroupSlice.createGroupStatus);
-  
-  const { nameProps, descriptionProps, descriptionRef, nameRef, onSubmit, avatar, setAvatar, name, description, errors } =
-    useCreateGroupForm();
+
+  const {
+    nameProps,
+    descriptionProps,
+    descriptionRef,
+    nameRef,
+    onSubmit,
+    avatar,
+    setAvatar,
+    name,
+    description,
+    errors,
+  } = useCreateGroupForm();
 
   const { t: translateCommon } = useTranslation('common');
   const { t: translate } = useTranslation('group');

@@ -7,7 +7,7 @@ import styles from './groupsPage.module.css';
 
 const GroupsPage: FC<ChildrenNever> = () => {
   const [filter, setFilter] = useState('');
-  
+
   return (
     <CoreLayout>
       <div className={styles.content}>

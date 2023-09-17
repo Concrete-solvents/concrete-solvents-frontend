@@ -22,7 +22,12 @@ function useCreateGroupForm() {
 
   const dispatch = useTypedDispatch();
   const { t: translate } = useTranslation('group');
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<CreateGroupFormProps>();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<CreateGroupFormProps>();
 
   const { ref: nameRef, ...nameProps } = register('name', {
     minLength: {
@@ -66,7 +71,18 @@ function useCreateGroupForm() {
     );
   });
 
-  return { avatar, setAvatar, nameRef, nameProps, descriptionProps, descriptionRef, onSubmit, name, description, errors };
+  return {
+    avatar,
+    setAvatar,
+    nameRef,
+    nameProps,
+    descriptionProps,
+    descriptionRef,
+    onSubmit,
+    name,
+    description,
+    errors,
+  };
 }
 
 export { useCreateGroupForm };

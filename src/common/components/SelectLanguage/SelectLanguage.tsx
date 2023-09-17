@@ -31,15 +31,18 @@ const SelectLanguage: FC<Props> = ({ isAbsolute = true, isTop = false }: Props) 
     <div className={isAbsolute ? styles.absoluteContainer : styles.container}>
       <p>{i18n.language === Language.English ? 'English' : 'Русский'}</p>
       <Button forwardedRef={buttonRef} className={styles.collapseButton} onClick={togglePopUpVisibility}>
-        <FontAwesomeIcon icon={isPopUpVisible ? faAngleUp : faAngleDown}/>
+        <FontAwesomeIcon icon={isPopUpVisible ? faAngleUp : faAngleDown} />
       </Button>
-      {isPopUpVisible ?
+      {isPopUpVisible ? (
         <div ref={popUpRef} className={isTop ? styles.popUpTop : styles.popUp}>
-          <Button className={styles.selectButton} onClick={() => setLanguage(Language.Russian)}>Русский</Button>
-          <Button className={styles.selectButton} onClick={() => setLanguage(Language.English)}>English</Button>
+          <Button className={styles.selectButton} onClick={() => setLanguage(Language.Russian)}>
+            Русский
+          </Button>
+          <Button className={styles.selectButton} onClick={() => setLanguage(Language.English)}>
+            English
+          </Button>
         </div>
-        : null
-      }
+      ) : null}
     </div>
   );
 };

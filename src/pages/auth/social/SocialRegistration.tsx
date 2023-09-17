@@ -29,7 +29,9 @@ const SocialRegistration: FC<ChildrenNever> = () => {
   }, []);
 
   return (
-    <AuthLayout><SocialRegistrationForm /></AuthLayout>
+    <AuthLayout>
+      <SocialRegistrationForm />
+    </AuthLayout>
   );
 };
 

@@ -37,7 +37,7 @@ const Input: FC<Props> = memo(({ className, forwardedRef, error, icon, type = 't
           </div>
         ) : null}
         <input
-          type={type === 'password' ? isPasswordVisible ? 'text' : 'password' : type}
+          type={type === 'password' ? (isPasswordVisible ? 'text' : 'password') : type}
           className={`${styles.input} ${className} ${error ? styles.errorBorder : ''}`}
           ref={forwardedRef || null}
           {...props}

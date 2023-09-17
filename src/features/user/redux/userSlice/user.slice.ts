@@ -45,7 +45,7 @@ const registerUser = createAsyncThunk('user/registerUser', async (payload: Regis
   try {
     const result = await api.post('auth/registration', payload);
     return result.data.user;
-  }  catch (error: any) {
+  } catch (error: any) {
     if (error.response) {
       return thunkApi.rejectWithValue(error.response.data);
     }

@@ -18,7 +18,7 @@ interface Props extends ChildrenNever {
 
 const DownloadAvatar: FC<Props> = ({ setImage, title }: Props) => {
   const { t: translate } = useTranslation('downloadAvatar');
-  
+
   async function uploadImage(event: ChangeEvent<HTMLInputElement>) {
     if (!event.target.files?.[0]) {
       return;

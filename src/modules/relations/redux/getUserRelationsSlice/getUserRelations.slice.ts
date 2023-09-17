@@ -21,10 +21,13 @@ const initialState: InitialState = {
   },
 };
 
-const getUserRelations = createAsyncThunk<UserRelations, number>('relations/getUserRelations', async (userId: number) => {
-  const result = await api.get(`users/${userId}/relations`);
-  return result.data;
-});
+const getUserRelations = createAsyncThunk<UserRelations, number>(
+  'relations/getUserRelations',
+  async (userId: number) => {
+    const result = await api.get(`users/${userId}/relations`);
+    return result.data;
+  },
+);
 
 const getUserRelationsSlice = createSlice({
   name: 'getUserRelationsSlice',

@@ -45,11 +45,7 @@ const WithAuth: FC<Props> = ({ children }: Props) => {
     return <Navigate to="/auth/social" />;
   }
 
-  return (
-    <>
-      {children}
-    </>
-  );
+  return <>{children}</>;
 };
 
 export { WithAuth };

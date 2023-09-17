@@ -13,7 +13,7 @@ import styles from './userEdit.module.css';
 
 const UserEdit: FC<ChildrenNever> = () => {
   const [tab, setTab] = useState(1);
-  
+
   return (
     <section className={styles.container}>
       <ProfileNavigation active={tab} changeTab={setTab} />

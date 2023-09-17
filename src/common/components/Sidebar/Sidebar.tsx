@@ -36,13 +36,13 @@ const Sidebar: FC<ChildrenNever> = () => {
   return (
     <section className={styles.sidebar}>
       <SidebarItem icon={faUser} link={`/users/${user?.id || -1}`} />
-      <SidebarItem icon={faBagShopping} link='/store' />
+      <SidebarItem icon={faBagShopping} link="/store" />
       <SidebarItem icon={faUserGroup} link={`/users/${user?.id || -1}/groups`} />
       <SidebarItem icon={faUsers} link={`/users/${user?.id || -1}/friends`} />
-      <SidebarItem icon={faBox} link='/inventory' />
-      <SidebarItem icon={faEnvelope} link='/inventory' />
-      <SidebarItem icon={faCircleDollarToSlot} link='/market' />
-      <SidebarItem icon={faGears} link='/settings' />
+      <SidebarItem icon={faBox} link="/inventory" />
+      <SidebarItem icon={faEnvelope} link="/inventory" />
+      <SidebarItem icon={faCircleDollarToSlot} link="/market" />
+      <SidebarItem icon={faGears} link="/settings" />
       <Button className={styles.logoutBtn} onClick={handleLogout}>
         <p className={styles.icon}>RU</p>
       </Button>

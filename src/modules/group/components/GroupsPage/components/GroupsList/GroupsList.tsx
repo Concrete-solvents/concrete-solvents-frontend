@@ -42,13 +42,23 @@ const GroupsList: FC<Props> = ({ filter }) => {
             {groups.length === 0 ? <p>По вашему запросу не нашлось групп</p> : null}
           </div>
           <div className={styles.pagination}>
-            <Link to={`/users/${userId}/groups?page=${1}`} className={styles.paginationItem}>{'|<'}</Link>
-            <Link to={`/users/${userId}/groups?page=${1}`} className={styles.paginationItem}>{'<'}</Link>
+            <Link to={`/users/${userId}/groups?page=${1}`} className={styles.paginationItem}>
+              {'|<'}
+            </Link>
+            <Link to={`/users/${userId}/groups?page=${1}`} className={styles.paginationItem}>
+              {'<'}
+            </Link>
             {[...new Array(groupsTotalPages)].map((_, index) => (
-              <Link to={`/users/${userId}/groups?page=${index + 1}`} className={styles.paginationItem}>{index + 1}</Link>
+              <Link to={`/users/${userId}/groups?page=${index + 1}`} className={styles.paginationItem}>
+                {index + 1}
+              </Link>
             ))}
-            <Link to={`/users/${userId}/groups?page=${1}`} className={styles.paginationItem}>{'>'}</Link>
-            <Link to={`/users/${userId}/groups?page=${groupsTotalPages}`} className={styles.paginationItem}>{'>|'}</Link>
+            <Link to={`/users/${userId}/groups?page=${1}`} className={styles.paginationItem}>
+              {'>'}
+            </Link>
+            <Link to={`/users/${userId}/groups?page=${groupsTotalPages}`} className={styles.paginationItem}>
+              {'>|'}
+            </Link>
           </div>
         </div>
       )}

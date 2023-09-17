@@ -25,13 +25,15 @@ const Welcome: FC<ChildrenNever> = () => {
   }
 
   return (
-    <div
-      className={authStyles.pageContainer}
-    >
+    <div className={authStyles.pageContainer}>
       <SelectLanguage />
       <section className={styles.buttons}>
-        <Button className={styles.button} onClick={goToLoginPage}>{translate('Sign in')}</Button>
-        <Button className={styles.button} onClick={goToRegistrationPage}>{translate('Sign up')}</Button>
+        <Button className={styles.button} onClick={goToLoginPage}>
+          {translate('Sign in')}
+        </Button>
+        <Button className={styles.button} onClick={goToRegistrationPage}>
+          {translate('Sign up')}
+        </Button>
         <SignInWith />
       </section>
     </div>

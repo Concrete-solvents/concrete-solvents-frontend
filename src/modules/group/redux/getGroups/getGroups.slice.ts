@@ -20,24 +20,27 @@ const initialState: InitialState = {
   totalPages: 0,
 };
 
-const getGroups = createAsyncThunk<GetGroupsResponse, GetGroupsRequest>('getGroups/getGroups', async (payload, thunkAPI) => {
-  try {
-    const result = await api.get(`/users/${payload.userId}/groups`, {
-      params: {
-        limit: 32,
-        page: payload.page || 1,
-        filter: payload.filter,
-      },
-    });
-    
-    return result.data;
-  } catch (error: any) {
-    if (error.response) {
-      return thunkAPI.rejectWithValue(error.response.data);
+const getGroups = createAsyncThunk<GetGroupsResponse, GetGroupsRequest>(
+  'getGroups/getGroups',
+  async (payload, thunkAPI) => {
+    try {
+      const result = await api.get(`/users/${payload.userId}/groups`, {
+        params: {
+          limit: 32,
+          page: payload.page || 1,
+          filter: payload.filter,
+        },
+      });
+
+      return result.data;
+    } catch (error: any) {
+      if (error.response) {
+        return thunkAPI.rejectWithValue(error.response.data);
+      }
+      return thunkAPI.rejectWithValue(ServerError.ServerError);
     }
-    return thunkAPI.rejectWithValue(ServerError.ServerError);
-  }
-});
+  },
+);
 
 const getGroupsSlice = createSlice({
   name: 'getGroups',
